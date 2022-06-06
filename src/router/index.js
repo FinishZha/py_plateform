@@ -34,6 +34,12 @@ const routes = [
       }
     ]
   },
+   //在线编译模块
+  {
+    path: '/codeonline',
+    name: 'CodeOnline',
+    component: () => import('@/views/CodeOnline')
+  },
   {
     path: '/code',
     name:'CodeOnline',

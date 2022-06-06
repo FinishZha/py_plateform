@@ -1,35 +1,46 @@
 <template>
 <div class="code_online">
-  <div id="code_editor">
-    <textarea></textarea>
+  <div class="code_online__left">
+    <CodeMessage></CodeMessage>
   </div>
-  <div id="code_res"></div>
+  <div class="code_online__right">
+    <CodeEditor></CodeEditor>
+    <CodeResult></CodeResult>
+  </div>
 </div>
 </template>
 
 <script>
+import CodeEditor from "@/components/Code/CodeEditor";
+import CodeResult from "@/components/Code/CodeResult";
+import CodeMessage from "@/components/Code/CodeMessage";
 export default {
-  name: "CodeOnline"
+  name: "CodeOnline",
+  components:{
+    CodeResult,
+    CodeEditor,
+    CodeMessage
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .code_online{
-  width: 100%;
   height: 100%;
-  background-color: #2c3e50;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-
-  #code_editor{
-    width: 50%;
-    height: 100%;
-  }
-
-  #code_res{
-    width: 50%;
-    height: 800px;
-    background-color: grey;
-  }
+  justify-content: space-around;
+    .code_online__left{
+      flex: 1;
+      height: 100vh;
+      background-color: #0ae883;
+    }
+    .code_online__right{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100vh;
+    }
 }
 </style>

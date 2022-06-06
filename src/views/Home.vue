@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <Bar></Bar>
-    <CodeEditor></CodeEditor>
+    <Test></Test>
   </div>
 </template>
 <script>
 import Bar from "@/components/Navigation/Bar";
-import CodeEditor from "@/components/Code/CodeEditor";
+import Test from "@/components/Code/Test";
 export default {
   name: 'Home',
   data(){
@@ -27,7 +27,7 @@ export default {
   },
   components: {
     Bar,
-    CodeEditor
+    Test
   },
   mounted() {
 
