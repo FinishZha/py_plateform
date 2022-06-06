@@ -1,18 +1,44 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Bar></Bar>
+    <CodeEditor></CodeEditor>
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Bar from "@/components/Navigation/Bar";
+import CodeEditor from "@/components/Code/CodeEditor";
 export default {
   name: 'Home',
+  data(){
+    return{
+      msg:{
+        sender:'Jack',
+        receiver:'Rose'
+      },
+    }
+  },
+  methods:{
+    logLine(){
+      console.log('---------------分割线---------------')
+    },
+    logMsg(newVal, oldVal){
+      console.log(newVal)
+    }
+  },
   components: {
-    HelloWorld
+    Bar,
+    CodeEditor
+  },
+  mounted() {
+
+  },
+  watch:{
+    msg:{
+      handler:'logMsg',
+      deep:true,
+      immediate:true
+    },
+    'msg.sender':['logLine', 'logMsg']
   }
 }
 </script>
