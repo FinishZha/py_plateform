@@ -38,12 +38,12 @@ const routes = [
   {
     path: '/codeonline',
     name: 'CodeOnline',
-    component: () => import('@/views/CodeOnline')
+    component: () => import('@/views/CodeOnline/Index')
   },
   {
     path: '/code',
     name:'CodeOnline',
-    component: ()=>import('@/views/CodeOnline')
+    component: ()=>import('@/views/CodeOnline/Index')
   }
 ]
 

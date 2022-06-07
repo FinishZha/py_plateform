@@ -46,6 +46,7 @@ export default {
 .code_message{
   position: relative;
   height: 100%;
+  min-height: 865px;
   left: 0;
   top: 0;
   display: flex;
@@ -55,8 +56,9 @@ export default {
     height: 100%;
     width: 92%;
     min-width: 300px;
+    box-sizing: border-box;
     border-right: 1px solid #eee;
-    background-color: #dddec1;
+    background-color: #ececec;
     .question{
       padding: 20px;
       .question_span{
@@ -71,7 +73,7 @@ export default {
     height: 100%;
     min-width: 50px;
     display: flex;
-    background-color: #333;
+    background-color: #2e7cee;
     justify-content: center;
     align-items: center;
     border-right: 1px solid #eee;
