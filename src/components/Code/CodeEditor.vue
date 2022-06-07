@@ -202,7 +202,8 @@ export default {
 .in-coder-panel{
   width: 100%;
   min-width: 450px;
-  max-width: 900px;
+  //max-width: 950px;
+  max-width: 98%;
   min-height: 550px;
   background-color: #fff;
   margin: 3px;

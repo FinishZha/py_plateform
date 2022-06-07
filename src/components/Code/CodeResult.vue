@@ -36,7 +36,8 @@ export default {
   height: 100%;
   width: 100%;
   min-width: 450px;
-  max-width: 900px;
+  min-height: 300px;
+  max-width: 98%;
   border:1px solid #cecdcd;
   background-color: #ffffff;
   margin: 3px;

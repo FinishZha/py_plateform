@@ -31,16 +31,16 @@ export default {
   display: flex;
   justify-content: space-around;
     .code_online__left{
-      flex: 1;
-      height: 100vh;
-      background-color: #0ae883;
+      flex: 0;
+
+      height: 100%;
     }
     .code_online__right{
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      height: 100vh;
+      align-items: center;
     }
 }
 </style>
