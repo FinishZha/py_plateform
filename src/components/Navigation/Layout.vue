@@ -4,7 +4,7 @@
       <el-header>
           <Header></Header>
       </el-header>
-      <el-main>
+      <el-main class="layout_main">
         <router-view></router-view>
       </el-main>
       <el-footer>
@@ -41,12 +41,13 @@ export default {
       position: sticky;
       top: 0;
       left: 0;
-      width: 100%;
+      z-index: 9999;
       height: 70px !important;
       box-shadow: 3px 1px 4px 1px #ececec !important;
     }
     .el-footer {
       text-align: center;
+      z-index: 999;
     }
 
     .el-main {
@@ -54,7 +55,7 @@ export default {
       color: #333;
       text-align: center;
       line-height: 160px;
-      height: 100vh;
+      min-height: 100vh;
     }
   }
 }

@@ -71,6 +71,7 @@ export default {
 .nav_header{
   width: 100%;
   height: 100%;
+  min-width: 1600px;
   position: absolute;
   top: 0;
   left: 0;
@@ -89,9 +90,7 @@ export default {
   .nav_header__left{
     height: 100%;
     width: 600px;
-    min-width: 600px;
-    position: relative;
-    left: 0;
+    min-width: 450px;
     ul{
       width: 100%;
       height: 100%;
