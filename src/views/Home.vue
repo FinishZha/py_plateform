@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <Bar></Bar>
+    <Layout></Layout>
   </div>
 </template>
 <script>
-import Bar from "@/components/Navigation/Bar";
+import Layout from "@/components/Navigation/Layout";
 export default {
   name: 'Home',
   data(){
@@ -14,7 +14,7 @@ export default {
   methods:{
   },
   components: {
-    Bar,
+    Layout,
   },
   mounted() {
 
@@ -23,3 +23,8 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+ .home{
+ }
+</style>

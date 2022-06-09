@@ -26,6 +26,12 @@ export default {
 
 <style lang="less" scoped>
 .footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #eeeeee;
   .footer_list{
     height: 120px;
     width: 100%;
@@ -48,7 +54,7 @@ export default {
     }
   }
   .footer_record{
-    border-top: 2px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
     height: 35px;
     line-height: 35px;
     width: 100%;
