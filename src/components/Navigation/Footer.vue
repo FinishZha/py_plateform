@@ -30,7 +30,7 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  min-width: 1600px;
+  min-width: 1300px;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
   .footer_list{
@@ -60,6 +60,7 @@ export default {
     line-height: 35px;
     width: 100%;
     position: relative;
+    text-align: center;
     left: 0;
     top: 0;
     a{

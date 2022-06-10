@@ -42,7 +42,8 @@
                 <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" round>线路牵引</el-button>
               </li>
               <li>
-                <el-link>登录 | 注册</el-link>
+                <el-avatar size="medium" :src="circleUrl" v-if="SHOW_LOGIN"></el-avatar>
+                <el-link v-else>登录 | 注册</el-link>
               </li>
             </ul>
           </div>
@@ -55,13 +56,22 @@ export default {
   name: "Header",
   data(){
     return {
-      search_data:''
+      search_data:'',
+      circleUrl:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
     }
   },
   methods:{
     search_target(){
       let key = this.search_data
       console.log(key)
+    }
+  },
+  computed:{
+    SHOW_LOGIN(){
+      // let USER_STATE = this.$store.state.user.USER_STATE
+      // console.log(USER_STATE)
+      // return USER_STATE === 'ONLINE';
+      return this.$store.state.User.USER_STATE === 'ONLINE'
     }
   }
 }
@@ -71,7 +81,7 @@ export default {
 .nav_header{
   width: 100%;
   height: 100%;
-  min-width: 1600px;
+  min-width: 1300px;
   position: absolute;
   top: 0;
   left: 0;

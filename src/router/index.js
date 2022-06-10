@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import * as path from "path";
 
 Vue.use(VueRouter)
 
 const routes = [
+    //首页功能模块
   {
     path: '/',
     name: 'Home',
@@ -53,10 +53,24 @@ const routes = [
     name: 'CodeOnline',
     component: () => import('@/views/CodeOnline/Index')
   },
+    //权限认证模块
   {
-    path: '/code',
-    name:'CodeOnline',
-    component: ()=>import('@/views/CodeOnline/Index')
+    path: '/auth',
+    name: 'Authorization',
+    component: () => import('@/views/User/Authorization'),
+    redirect: '/auth/login',
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component:()=>import('@/components/Auth/Login')
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component:()=>import('@/components/Auth/Register')
+      }
+    ]
   }
 ]
 

@@ -42,6 +42,7 @@ export default {
       top: 0;
       left: 0;
       z-index: 9999;
+      min-width: 1300px;
       height: 70px !important;
       box-shadow: 3px 1px 4px 1px #ececec !important;
     }
