@@ -9,16 +9,16 @@
             <el-link href="#/home">首页</el-link>
           </li>
           <li>
-            <el-link>视频学习区</el-link>
+            <el-link href="#/video">视频学习区</el-link>
           </li>
           <li>
-            <el-link>书库</el-link>
+            <el-link href="#/book">书库</el-link>
           </li>
           <li>
-            <el-link>疑难解惑</el-link>
+            <el-link href="#/question">疑难解惑</el-link>
           </li>
           <li>
-            <el-link>在线练习</el-link>
+            <el-link href="#/enjoy">在线练习</el-link>
           </li>
         </ul>
       </div>
@@ -76,6 +76,10 @@ export default {
 
 <style lang="less" scoped>
 .nav_header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
   width: 100%;
   height: 100%;
   max-height: 70px;
@@ -83,9 +87,10 @@ export default {
   background-color: #ffffff;
   box-sizing: border-box;
   border-bottom: 1px solid #eeeeee;
-  box-shadow: #333333;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 1px 4px 1px #ececec !important;
   .logo{
     img{
       height: 40px;

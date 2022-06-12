@@ -1,19 +1,17 @@
 <template>
-  <div class="notebook">
-    <router-view></router-view>
-  </div>
+<div class="video_study">
+  <h1>这个是视频学习区</h1>
+</div>
 </template>
 
 <script>
 export default {
-  name: "Index",
-  components:{
-  }
+  name: "Index"
 }
 </script>
 
 <style lang="less" scoped>
-.notebook{
+.video_study{
   min-height: 800px;
 }
 </style>

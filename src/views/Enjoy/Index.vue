@@ -1,19 +1,17 @@
 <template>
-  <div class="notebook">
-    <router-view></router-view>
-  </div>
+<div class="enjoy">
+  <h1>在线练习模块</h1>
+</div>
 </template>
 
 <script>
 export default {
-  name: "Index",
-  components:{
-  }
+  name: "Index"
 }
 </script>
 
 <style lang="less" scoped>
-.notebook{
+.enjoy{
   min-height: 800px;
 }
 </style>

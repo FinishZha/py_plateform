@@ -6,29 +6,28 @@ Vue.use(VueRouter)
 const routes = [
     //首页功能模块
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
-    component: () => import('@/views/Home/Index'),
-    redirect: '/home',
-    children: [
-      {
-        path: 'home',
-        name: 'Home',
-        component: () => import('@/views/Home/Home')
-      },
-      {
-        path: 'video',
-        name: 'Video',
-        component: () => import('@/views/Home/VideoStudy')
-      }
-    ]
+    component: () => import('@/views/Home/Index')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/video',
+    name: 'Video',
+    component: () => import('@/views/VideoStudy/Index')
   },
-    //笔记模块
+  //书库模块
+  {
+    path: '/book',
+    name: 'Book',
+    component: () => import('@/views/Book/Index')
+  },
+  //疑难解惑模块
+  {
+    path: '/question',
+    name:'Question',
+    component: () => import('@/views/Question/Index')
+  },
+  //笔记模块
   {
     path: '/notebook',
     name: 'NoteBook',
@@ -47,7 +46,19 @@ const routes = [
       }
     ]
   },
-   //在线编译模块
+  //在线练习模块
+  {
+    path: '/enjoy',
+    name: 'Enjoy',
+    component:() => import('@/views/Enjoy/Index')
+  },
+  //关于网站
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  //在线编译模块
   {
     path: '/codeonline',
     name: 'CodeOnline',

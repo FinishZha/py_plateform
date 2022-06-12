@@ -1,19 +1,17 @@
 <template>
-  <div class="notebook">
-    <router-view></router-view>
-  </div>
+<div class="question">
+  <h1>Question</h1>
+</div>
 </template>
 
 <script>
 export default {
-  name: "Index",
-  components:{
-  }
+  name: "Index"
 }
 </script>
 
 <style lang="less" scoped>
-.notebook{
+.question{
   min-height: 800px;
 }
 </style>
