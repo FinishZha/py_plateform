@@ -64,6 +64,7 @@ export default {
   height: 100vh;
   width: 100%;
   position: relative;
+  z-index: 888;
   top: 0;
   left: 0;
 
