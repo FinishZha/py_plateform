@@ -25,9 +25,6 @@
             <el-option label="女" value="1"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="用户邮箱">
-          <el-input v-model="USER_INFO.USER_EMAIL" clearable></el-input>
-        </el-form-item>
       </el-form>
     </div>
     <div class="user_info_handle">
@@ -42,6 +39,7 @@ export default {
   name: "Default",
   data(){
     return{
+      //表单label位置
       labelPosition:'left'
     }
   },
@@ -50,14 +48,14 @@ export default {
     change_user_info(){
       this.$notify({
         type:"success",
-        message:"修改成功"
+        message:"个人信息修改成功"
       })
     },
     //修改用户线路
     change_road(){
       this.$notify({
         type:"success",
-        message:"修改成功"
+        message:"学习线路修改成功"
       })
     }
   },
@@ -104,7 +102,6 @@ export default {
       }
     }
   }
-
   .user_info{
     height: 450px;
     .user_info__title{

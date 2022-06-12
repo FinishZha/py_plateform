@@ -13,6 +13,7 @@ export default {
             USER_ROAD:'人工智能',
             USER_POINT:'0',
             USER_EMAIL:'2848135295@qq.com',
+            USER_PHONE:'19157720829',
             USER_SEX:'男',
         },
     },
