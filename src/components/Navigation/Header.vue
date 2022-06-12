@@ -1,12 +1,12 @@
 <template>
     <div class="nav_header">
       <div class="logo">
-        <img src="../../../public/logo.png" alt="Logo">
+        <a href="#/home"><img src="../../../public/logo.png" alt="Logo"></a>
       </div>
       <div class="nav_header__left">
         <ul>
           <li>
-            <el-link>首页</el-link>
+            <el-link href="#/home">首页</el-link>
           </li>
           <li>
             <el-link>视频学习区</el-link>
@@ -36,14 +36,14 @@
           <div class="nav_header__right-in">
             <ul>
               <li>
+                <el-avatar size="medium" :src="circleUrl" v-if="SHOW_LOGIN"></el-avatar>
+                <el-link v-else href="#/auth/login">登录 | 注册</el-link>
+              </li>
+              <li>
                 <el-link>提问</el-link>
               </li>
               <li>
                 <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" round>线路牵引</el-button>
-              </li>
-              <li>
-                <el-avatar size="medium" :src="circleUrl" v-if="SHOW_LOGIN"></el-avatar>
-                <el-link v-else>登录 | 注册</el-link>
               </li>
             </ul>
           </div>
@@ -68,9 +68,6 @@ export default {
   },
   computed:{
     SHOW_LOGIN(){
-      // let USER_STATE = this.$store.state.user.USER_STATE
-      // console.log(USER_STATE)
-      // return USER_STATE === 'ONLINE';
       return this.$store.state.User.USER_STATE === 'ONLINE'
     }
   }
@@ -81,10 +78,8 @@ export default {
 .nav_header{
   width: 100%;
   height: 100%;
+  max-height: 70px;
   min-width: 1300px;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #ffffff;
   box-sizing: border-box;
   border-bottom: 1px solid #eeeeee;
