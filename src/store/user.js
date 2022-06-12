@@ -1,13 +1,19 @@
+import el from "element-ui/src/locale/lang/el";
+
 export default {
     state:{
         //用户状态
         //OUTLINE   离线
         //ONLINE   在线
-        USER_STATE: 'OUTLINE',
+        USER_STATE: 'ONLINE',
         USER_INFO:{
-            USER_NAME:'',
-            USER_HEAD:'',
-            USER_ROAD:'',
+            USER_ID:'721157855',
+            USER_NAME:'ByteHero',
+            USER_HEAD:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
+            USER_ROAD:'人工智能',
+            USER_POINT:'0',
+            USER_EMAIL:'2848135295@qq.com',
+            USER_SEX:'男',
         },
     },
     mutations:{

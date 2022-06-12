@@ -46,6 +46,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  min-width: 1400px;
 
   #back_up{
     position: fixed;

@@ -27,9 +27,13 @@ export default {
 <style lang="less" scoped>
 .footer{
   width: 100%;
-  min-width: 1300px;
+  min-width: 1400px;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
+  z-index: 9999;
+  position: relative;
+  top: 0;
+  left: 0;
   .footer_list{
     height: 120px;
     width: 100%;

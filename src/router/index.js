@@ -4,6 +4,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
     //首页功能模块
   {
     path: '/home',
@@ -52,19 +56,19 @@ const routes = [
     name: 'Enjoy',
     component:() => import('@/views/Enjoy/Index')
   },
-  //关于网站
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
   //在线编译模块
   {
     path: '/codeonline',
     name: 'CodeOnline',
     component: () => import('@/views/CodeOnline/Index')
   },
-    //权限认证模块
+  //线路指导
+  {
+    path:'/roadstudy',
+    name: 'RoadStudy',
+    component:() => import('@/views/RoadStudy/Index')
+  },
+  //权限认证模块
   {
     path: '/auth',
     name: 'Authorization',
@@ -82,6 +86,18 @@ const routes = [
         component:()=>import('@/components/Auth/Register')
       }
     ]
+  },
+  //用户信息
+  {
+    path: '/user',
+    name: 'User',
+    component: ()=>import('@/views/User/Usercenter')
+  },
+  //关于网站
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 

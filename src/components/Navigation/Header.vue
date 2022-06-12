@@ -36,14 +36,23 @@
           <div class="nav_header__right-in">
             <ul>
               <li>
-                <el-avatar size="medium" :src="circleUrl" v-if="SHOW_LOGIN"></el-avatar>
-                <el-link v-else href="#/auth/login">登录 | 注册</el-link>
+                <el-dropdown placement="bottom" @command="handleCommand">
+                  <el-avatar size="medium" :src="USER_INFO.USER_HEAD" v-if="SHOW_LOGIN"></el-avatar>
+                  <el-link v-else href="#/auth/login">登录 | 注册</el-link>
+                  <el-dropdown-menu v-if="SHOW_LOGIN" >
+                    <el-dropdown-item icon="el-icon-user-solid" command="/user">个人中心</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-collection">我的笔记</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-present">积分商城</el-dropdown-item>
+                    <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+
               </li>
               <li>
                 <el-link>提问</el-link>
               </li>
               <li>
-                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" round>线路牵引</el-button>
+                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('../roadstudy')" round>线路牵引</el-button>
               </li>
             </ul>
           </div>
@@ -57,18 +66,36 @@ export default {
   data(){
     return {
       search_data:'',
-      circleUrl:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
     }
   },
   methods:{
     search_target(){
       let key = this.search_data
       console.log(key)
+    },
+    //路由跳转
+    url_jump(target){
+      let USER_STATE = this.$store.state.User.USER_STATE
+      if (USER_STATE === 'ONLINE'){
+        this.$router.push(target.toString())
+      }else {
+        this.$notify({
+          type:"warning",
+          message:'你还未登录，无法体验此功能'
+        })
+      }
+    },
+    //下拉菜单事件
+    handleCommand(command){
+        this.$router.push(command)
     }
   },
   computed:{
     SHOW_LOGIN(){
       return this.$store.state.User.USER_STATE === 'ONLINE'
+    },
+    USER_INFO(){
+      return this.$store.state.User.USER_INFO
     }
   }
 }
@@ -83,7 +110,7 @@ export default {
   width: 100%;
   height: 100%;
   max-height: 70px;
-  min-width: 1300px;
+  min-width: 1400px;
   background-color: #ffffff;
   box-sizing: border-box;
   border-bottom: 1px solid #eeeeee;
