@@ -27,6 +27,7 @@ export default {
 <style lang="less" scoped>
 .code_online{
   height: 100%;
+  min-height: 900px;
   width: 100%;
   display: flex;
   justify-content: space-around;

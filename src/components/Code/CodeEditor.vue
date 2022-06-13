@@ -205,7 +205,7 @@ export default {
   //max-width: 950px;
   max-width: 98%;
   min-height: 550px;
-  background-color: #fff;
+  //background-color: #fff;
   margin: 3px;
   .code_header{
     width: 100%;

@@ -58,7 +58,7 @@ export default {
     min-width: 300px;
     box-sizing: border-box;
     border-right: 1px solid #eee;
-    background-color: #ececec;
+    background-color: #eee;
     .question{
       padding: 20px;
       .question_span{
