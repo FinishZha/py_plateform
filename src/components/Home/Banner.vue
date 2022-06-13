@@ -41,7 +41,7 @@ export default {
         height: 100%;
         width: 100%;
         img {
-          height: 440px;
+          height: 400px;
           width: 760px;
         }
       }

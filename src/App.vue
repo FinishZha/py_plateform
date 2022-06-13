@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view></router-view>
+    <div class="main">
+      <router-view></router-view>
+    </div>
     <Footer></Footer>
   <el-button
       type="primary"
@@ -47,6 +49,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   min-width: 1400px;
+
+  .main{
+    margin-top: 68px;
+  }
 
   #back_up{
     position: fixed;

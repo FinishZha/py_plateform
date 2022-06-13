@@ -24,9 +24,7 @@ export default {
 
 <style lang="less" scoped>
 .hot_news{
-  position: absolute;
-  top: 0;
-  left: 770px;
+  margin-top: 10px;
   .el-card{
     width: 528px;
     height: 400px;
@@ -49,7 +47,6 @@ export default {
           line-height: 30px;
           list-style: none;
           padding: 10px;
-
           .hot_number{
             display: inline-block;
             height: 20px;

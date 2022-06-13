@@ -1,6 +1,10 @@
 <template>
 <div class="content_list_card">
-  <el-card shadow="hover"></el-card>
+  <el-card shadow="hover">
+    <div class="content_list__card-title">
+      <h3>视频专区</h3>
+    </div>
+  </el-card>
 </div>
 </template>
 
@@ -15,7 +19,9 @@ export default {
   width: 100%;
   height: 800px;
   .el-card{
-      height: 100%;
+    height: 100%;
+    .content_list__card-title{
+    }
   }
 }
 </style>

@@ -18,6 +18,9 @@
             <div class="section_four">
               <ContentListCard></ContentListCard>
             </div>
+            <div class="section_five">
+              <PageContentEnd></PageContentEnd>
+            </div>
         </div>
     </div>
   </div>
@@ -32,6 +35,7 @@ import VideoCard from "@/components/Home/VideoCard";
 import QuestionCard from "@/components/Home/QuestionCard";
 import BookCard from "@/components/Home/BookCard";
 import ContentListCard from "@/components/Home/ContentListCard";
+import PageContentEnd from "@/components/Home/PageContentEnd";
 export default {
   name: "Home",
   methods:{
@@ -45,7 +49,8 @@ export default {
     VideoCard,
     QuestionCard,
     BookCard,
-    ContentListCard
+    ContentListCard,
+    PageContentEnd
   }
 }
 </script>
@@ -66,6 +71,8 @@ export default {
       height: auto;
       min-height: 800px;
       margin-top: 15px;
+      display: flex;
+      flex-direction: column;
       .section_one{
         width: 100%;
         height: auto;
@@ -76,6 +83,9 @@ export default {
         position: relative;
         top: 0;
         left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .section_three{
         margin-top: 12px;
@@ -86,6 +96,10 @@ export default {
         justify-content: space-between;
       }
       .section_four{
+        margin-bottom: 15px;
+      }
+      .section_five{
+        height: auto;
         margin-bottom: 20px;
       }
     }

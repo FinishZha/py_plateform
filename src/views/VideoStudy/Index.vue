@@ -1,6 +1,8 @@
 <template>
 <div class="video_study">
-  <h1>这个是视频学习区</h1>
+  <div class="video_study__inner">
+      <div class=""></div>
+  </div>
 </div>
 </template>
 
@@ -13,5 +15,13 @@ export default {
 <style lang="less" scoped>
 .video_study{
   min-height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .video_study__inner{
+    width: 1300px;
+    background-color: #20a0ff;
+    margin-top: 15px;
+  }
 }
 </style>
