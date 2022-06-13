@@ -1,24 +1,24 @@
 <template>
     <div class="nav_header">
       <div class="logo">
-        <a href="#/home"><img src="../../../public/logo.png" alt="Logo"></a>
+        <a href="#/project/home"><img src="../../../public/logo.png" alt="Logo"></a>
       </div>
       <div class="nav_header__left">
         <ul>
           <li>
-            <el-link href="#/home">首页</el-link>
+            <el-link href="#/project/home">首页</el-link>
           </li>
           <li>
-            <el-link href="#/video">视频学习区</el-link>
+            <el-link href="#/project/video">视频学习区</el-link>
           </li>
           <li>
-            <el-link href="#/book">书库</el-link>
+            <el-link href="#/project/book">书库</el-link>
           </li>
           <li>
-            <el-link href="#/question">疑难解惑</el-link>
+            <el-link href="#/project/question">疑难解惑</el-link>
           </li>
           <li>
-            <el-link href="#/enjoy">在线练习</el-link>
+            <el-link href="#/project/enjoy">在线练习</el-link>
           </li>
         </ul>
       </div>
@@ -38,9 +38,9 @@
               <li>
                 <el-dropdown placement="bottom" @command="handleCommand">
                   <el-avatar size="medium" :src="USER_INFO.USER_HEAD" v-if="SHOW_LOGIN"></el-avatar>
-                  <el-link v-else href="#/auth/login">登录 | 注册</el-link>
+                  <el-link v-else href="#/project/auth/login">登录 | 注册</el-link>
                   <el-dropdown-menu v-if="SHOW_LOGIN" >
-                    <el-dropdown-item icon="el-icon-user-solid" command="/user">个人中心</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-user-solid" command="/project/user">个人中心</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-collection">我的笔记</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-present">积分商城</el-dropdown-item>
                     <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
@@ -52,7 +52,7 @@
                 <el-link>提问</el-link>
               </li>
               <li>
-                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('../roadstudy')" round>线路牵引</el-button>
+                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('../project/roadstudy')" round>线路牵引</el-button>
               </li>
             </ul>
           </div>

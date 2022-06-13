@@ -15,5 +15,6 @@ export default {
 <style lang="less" scoped>
 .notebook{
   min-height: 800px;
+  margin-top: 90px;
 }
 </style>

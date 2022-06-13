@@ -1,7 +1,12 @@
 <template>
 <div class="video_study">
   <div class="video_study__inner">
-      <div class=""></div>
+    <div class="video_study__inner-nav">
+
+    </div>
+    <div class="video_study__inner-table">
+
+    </div>
   </div>
 </div>
 </template>
@@ -20,8 +25,16 @@ export default {
   justify-content: center;
   .video_study__inner{
     width: 1300px;
-    background-color: #20a0ff;
+    //background-color: #20a0ff;
     margin-top: 15px;
+    .video_study__inner-nav{
+      height: 250px;
+      background-color: yellow;
+    }
+    .video_study__inner-table{
+      height: 800px;
+      background-color: blueviolet;
+    }
   }
 }
 </style>

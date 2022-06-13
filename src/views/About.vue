@@ -7,5 +7,6 @@
 <style lang="less" scoped>
 .about{
   text-align: center;
+  min-height: 800px;
 }
 </style>

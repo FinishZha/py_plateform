@@ -1,18 +1,14 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <div class="main">
       <router-view></router-view>
-    </div>
-    <Footer></Footer>
-  <el-button
-      type="primary"
-      icon="el-icon-top"
-      circle
-      plain
-      @click="BACK_TOP"
-      id="back_up"
-      style="display: none"></el-button>
+      <el-button
+          type="primary"
+          icon="el-icon-top"
+          circle
+          plain
+          @click="BACK_TOP"
+          id="back_up"
+          style="display: none"></el-button>
   </div>
 </template>
 
@@ -26,14 +22,9 @@ window.onscroll = function (){
     backup.style.display = 'none'
   }
 }
-import Header from "@/components/Navigation/Header";
-import Footer from "@/components/Navigation/Footer";
+
 export default {
   name: 'app',
-  components: {
-    Header,
-    Footer
-  },
   methods:{
     BACK_TOP(){
       document.documentElement.scrollTop = 0
@@ -49,10 +40,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   min-width: 1400px;
-
-  .main{
-    margin-top: 68px;
-  }
 
   #back_up{
     position: fixed;

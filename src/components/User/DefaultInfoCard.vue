@@ -73,16 +73,15 @@ export default {
     margin-bottom: 15px;
     width: 98%;
   }
-
   .user_header{
     position: relative;
     top: 0;
     left: 0;
+    margin-top: 2px;
     .user_header_img{
       height: 120px;
       width: 120px;
     }
-
     .user_header_road{
       height: 50px;
       width: 300px;
