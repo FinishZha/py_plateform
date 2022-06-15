@@ -40,16 +40,13 @@
                   <el-avatar size="medium" :src="USER_INFO.USER_HEAD" v-if="SHOW_LOGIN"></el-avatar>
                   <el-link v-else href="#/project/auth/login">登录 | 注册</el-link>
                   <el-dropdown-menu v-if="SHOW_LOGIN" >
-                    <el-dropdown-item icon="el-icon-user-solid" command="/project/user">个人中心</el-dropdown-item>
+                    <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-user-solid" :command="beforeHandleCommand('jump', '/project/user')">个人中心</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-collection">我的笔记</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-present">积分商城</el-dropdown-item>
-                    <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-back" :command="beforeHandleCommand('leave', )">退出登录</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
-
-              </li>
-              <li>
-                <el-link>提问</el-link>
               </li>
               <li>
                 <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('../project/roadstudy')" round>线路牵引</el-button>
@@ -61,6 +58,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Header",
   data(){
@@ -85,9 +83,27 @@ export default {
         })
       }
     },
+    //返回新的command对象
+    beforeHandleCommand(handle,command){
+      return {
+        'handle': handle,
+        'command':command
+      }
+    },
     //下拉菜单事件
     handleCommand(command){
-        this.$router.push(command)
+      switch (command.handle){
+        case 'jump':
+          this.$router.push(command.command)
+              break
+        case  'leave':
+          this.$store.commit('USER_LEAVE')
+          this.$notify({
+            type:'success',
+            message:'退出成功'
+          })
+              break
+      }
     }
   },
   computed:{

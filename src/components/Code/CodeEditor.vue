@@ -49,6 +49,8 @@ import 'codemirror/mode/python/python.js'
 // 尝试获取全局实例
 const CodeMirror = window.CodeMirror || _CodeMirror
 
+//接口导入
+import {RUN_CODE} from "@/api/code";
 export default {
   name: 'in-coder',
   props: {
@@ -193,6 +195,13 @@ export default {
     //运行代码
     runCode(){
       console.log(this.code)
+      let data = {
+        code: this.code
+      }
+      RUN_CODE(data).then(res => {
+        console.log(res)
+      })
+      this.$store.commit('CATCH_CODE_RESULT', this.code)
     }
   }
 }
@@ -202,10 +211,8 @@ export default {
 .in-coder-panel{
   width: 100%;
   min-width: 450px;
-  //max-width: 950px;
   max-width: 98%;
   min-height: 550px;
-  //background-color: #fff;
   margin: 3px;
   .code_header{
     width: 100%;

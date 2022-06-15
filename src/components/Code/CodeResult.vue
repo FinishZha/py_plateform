@@ -7,7 +7,7 @@
         </el-tooltip>
       </div>
       <div class="result_body">
-        <i>这里是结果...</i>
+        <i>{{ CODE_RESULT }}</i>
       </div>
     </div>
 </template>
@@ -27,6 +27,12 @@ export default {
   name: "CodeResult",
   methods:{
 
+  },
+  computed:{
+    //代码结果
+    CODE_RESULT(){
+      return this.$store.state.Code.CODE_RESULT
+    }
   }
 }
 </script>

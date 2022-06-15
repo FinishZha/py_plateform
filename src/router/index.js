@@ -101,6 +101,11 @@ const routes = [
            }
          ]
        },
+       //问卷调查阶段
+       {
+         path: 'consult',
+         component: ()=>import('@/views/Consult/Index')
+       }
      ]
   },
   //在线编译模块

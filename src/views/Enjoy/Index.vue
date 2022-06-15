@@ -5,7 +5,7 @@
       <el-card shadow="hover">
         <ul>
           <li>
-            <el-link icon="el-icon-s-platform">在线IDE</el-link>
+            <el-link icon="el-icon-s-platform"><a href="#/codeonline" target="_blank">在线IDE</a></el-link>
           </li>
         </ul>
       </el-card>
@@ -49,6 +49,12 @@ export default {
             height: 30px;
             line-height: 30px;
             list-style: none;
+            .el-link{
+              a{
+                text-decoration: none;
+                color: #4d92e1;
+              }
+            }
           }
         }
       }

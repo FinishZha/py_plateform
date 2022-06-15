@@ -1,10 +1,10 @@
+import axios from 'axios'
 import { Message } from 'element-ui'
-import axios from "axios";
 
-//1. 创建新的axios实例
+//1. 创建新的axios实例，
 const service = axios.create({
     // 公共接口
-    baseURL: 'https://www.katechian.xyz',
+    baseURL: 'http://106.55.103.152:8089',
     // 超时时间 单位是ms，这里设置了20s的超时时间
     timeout: 20 * 1000
 })
@@ -15,15 +15,14 @@ service.interceptors.request.use(config => {
     // config.data = JSON.parse(config.data); //数据转化,也可以使用qs转换
     config.headers = {
         'Content-Type':'application/json' //配置请求头
-        //"Content-Type": "multipart/form-data"
     }
-    //注意使用token的时候需要引入cookie方法或者用本地localStorage等方法
+    //注意使用token的时候需要引入cookie方法或者用本地localStorage等方法，推荐js-cookie
     const token = window.localStorage.getItem('token')
     if(token){
         // config.params = {'token':token} //如果要求携带在参数中
-        config.headers.token= token; //如果要求携带在请求头中
+        config.headers.Token= token; //如果要求携带在请求头中
     }else {
-        config.headers.token = ''
+        config.headers.Token = ''
     }
     return config
 }, error => {

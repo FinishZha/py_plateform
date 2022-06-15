@@ -3,20 +3,20 @@
         <el-card shadow="hover">
           <div slot="header" class="clearfix">
             <span id="title"><i class="el-icon-user" style="margin-right: 5px"></i>用户登录</span>
-            <el-link href="#/auth/register" type="primary" style="float: right; padding: 3px 0; font-size: 10px" >还没有账号?</el-link>
+            <el-link href="#/project/auth/register" type="primary" style="float: right; padding: 3px 0; font-size: 10px" >还没有账号?</el-link>
           </div>
           <div class="body">
             <div style="margin: 20px;">
               <el-form label-position="left" label-width="80px" :model="userInfo" ref="login_form" :rules="login_rule">
                 <el-form-item label="账号:" prop="userName">
-                  <el-input v-model="userInfo.username"  clearable></el-input>
+                  <el-input v-model="userInfo.userName"  clearable></el-input>
                 </el-form-item>
                 <el-form-item label="密码:" prop="passWord">
-                  <el-input type="password" v-model="userInfo.password" show-password></el-input>
+                  <el-input type="password" v-model="userInfo.passWord" show-password></el-input>
                 </el-form-item>
               </el-form>
               <div class="handle">
-                <el-button type="primary" round @click="login">登录</el-button>
+                <el-button type="primary" round @click="login('login_form')">登录</el-button>
               </div>
               <div class="clause_msg">
                  <span>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import {UER_LOGIN} from "@/api/user";
 export default {
   name: "Login",
   data(){
@@ -51,14 +52,43 @@ export default {
     }
   },
   methods:{
-    login(){
-      this.$notify({
-        type:"success",
-        message:'登录成功'
-      })
-    }
+    //登录功能
+    login(formName){
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          let user_count = {
+            email: this.userInfo.userName,
+            password: this.userInfo.passWord
+          }
+          UER_LOGIN(user_count).then(res => {
+            console.log(res)
+          })
+        } else {
+          this.$notify({
+            type:"warning",
+            message:'登录失败，请检查表单'
+          })
+          return false;
+        }
+      });
+
+      // this.$notify({
+      //   type:"success",
+      //   message:'登录成功'
+      // })
+    },
+    //登录检测功能
+    before_login(){
+      let USER_STATE = this.$store.state.User.USER_STATE
+      if(USER_STATE === 'ONLINE'){
+        this.$router.replace('/')
+      }
+    },
   },
   computed:{
+  },
+  mounted() {
+    this.before_login()
   }
 }
 </script>
