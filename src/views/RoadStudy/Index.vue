@@ -1,8 +1,8 @@
 <template>
 <div class="road_study">
   <div class="road_study__inner">
-    <RecommendArticle></RecommendArticle>
     <RecommendBook></RecommendBook>
+    <RecommendArticle></RecommendArticle>
     <RecommendTool></RecommendTool>
     <RecommendVideo></RecommendVideo>
   </div>

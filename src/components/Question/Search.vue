@@ -10,9 +10,7 @@
       </ul>
     </div>
   </el-card>
-  <el-card shadow="never" class="search_result">
-    <el-empty description="你要问的问题没找到，请换个问题试试吧"></el-empty>
-  </el-card>
+
 </div>
 </template>
 

@@ -29,6 +29,9 @@ export default {
     BACK_TOP(){
       document.documentElement.scrollTop = 0
     }
+  },
+  mounted() {
+
   }
 }
 </script>

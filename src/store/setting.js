@@ -6,7 +6,7 @@
 export default {
     state:{
         // 在/views/codeonline.vue中,用于在线编码的窗口打开（开关状态）
-       ONLINE_DEFINE_OPEN: true,
+       ONLINE_DEFINE_OPEN: false,
         //在/components/User/NoteBookCard.vue中，用于个人中心中个人笔记列表的空展示
        NOTEBOOK_LIST_EMPTY: true
     },

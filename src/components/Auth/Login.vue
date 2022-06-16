@@ -61,7 +61,20 @@ export default {
             password: this.userInfo.passWord
           }
           UER_LOGIN(user_count).then(res => {
-            console.log(res)
+            if(res.data.message.loginInfo.loginCode === 1){
+              this.$notify({
+                type:"success",
+                message:'登录成功'
+              })
+              this.$store.commit('USER_RNTER')
+              this.$store.commit('EMIT_USER_INFO',res.data.message.loginInfo.userInfo)
+              this.$router.push('/project/home')
+            }else {
+              this.$notify({
+                type:"error",
+                message:'登录失败，账号或密码错误'
+              })
+            }
           })
         } else {
           this.$notify({
@@ -71,11 +84,6 @@ export default {
           return false;
         }
       });
-
-      // this.$notify({
-      //   type:"success",
-      //   message:'登录成功'
-      // })
     },
     //登录检测功能
     before_login(){

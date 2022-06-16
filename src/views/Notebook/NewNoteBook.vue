@@ -78,6 +78,20 @@ export default {
   },
   components:{
     MarkDownEditor
+  },
+  //离开前进行咨询
+  beforeRouteLeave(to, from, next) {
+    // next(false)
+    this.$confirm('正在离开本页面，本页面内所有未保存数据都会丢失', '警告', {
+      distinguishCancelAndClose: true,
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(()=>{
+      next()
+    }).catch(()=>{
+      window.history.go(1)
+    })
   }
 }
 </script>

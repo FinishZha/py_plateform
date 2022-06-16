@@ -1,18 +1,12 @@
 <template>
 <div class="enjoy">
   <div class="enjoy_inner">
-    <div class="tool_tags">
-      <el-card shadow="hover">
-        <ul>
-          <li>
-            <el-link icon="el-icon-s-platform"><a href="#/codeonline" target="_blank">在线IDE</a></el-link>
-          </li>
-        </ul>
-      </el-card>
-    </div>
     <div class="enjoy_content">
       <el-card shadow="hover">
-
+        <div class="title">
+          <h3>试刀厂</h3>
+        </div>
+        <CodeQuestionList></CodeQuestionList>
       </el-card>
     </div>
   </div>
@@ -20,8 +14,12 @@
 </template>
 
 <script>
+import CodeQuestionList from "@/components/Enjoy/CodeQuestionList";
 export default {
-  name: "Index"
+  name: "Index",
+  components:{
+    CodeQuestionList
+  }
 }
 </script>
 
@@ -34,35 +32,16 @@ export default {
     width: 1300px;
     margin-top: 15px;
     margin-bottom: 20px;
-    .tool_tags{
-      height: auto;
-      width: 130px;
-      position: fixed;
-      right: 155px;
-      top:82px;
-      .el-card{
-        height: 100%;
-        min-height: 200px;
-        ul{
-          text-align: center;
-          li{
-            height: 30px;
-            line-height: 30px;
-            list-style: none;
-            .el-link{
-              a{
-                text-decoration: none;
-                color: #4d92e1;
-              }
-            }
-          }
-        }
-      }
-    }
     .enjoy_content{
       height: auto;
       .el-card{
-        min-height: 1200px;
+        min-height: 800px;
+        .title{
+          height: 35px;
+          line-height: 35px;
+          width: 300px;
+          background: url("../../../public/icon10.png") no-repeat center;
+        }
       }
     }
   }

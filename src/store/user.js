@@ -17,17 +17,21 @@ export default {
     },
     mutations:{
         //获取用户信息
-        GET_USER_INFO(state, info){
-            state.USER_INFO = info
+        EMIT_USER_INFO(state, info){
+            state.USER_INFO.USER_NAME = info.name
+            state.USER_INFO.USER_ID = info.id
+            state.USER_INFO.USER_EMAIL = info.email
+            state.USER_INFO.USER_HEAD = info.header
         },
-        //修改用户状态
-        CHANGE_USER_STATE(state) {
-            if (state.USER_STATE === 'ONLINE') return state.USER_STATE = 'OUTLINE'
+        //用户登录完成
+        USER_RNTER(state) {
             if (state.USER_STATE === 'OUTLINE') return state.USER_STATE = 'ONLINE'
         },
+        //用户状态配置
+
         //用户退出登录
         USER_LEAVE(state) {
-            state.USER_STATE = 'OUTLINE'
+            if (state.USER_STATE === 'ONLINE') return state.USER_STATE = 'OUTLINE'
         }
     },
     action:{

@@ -2,8 +2,13 @@
   <div class="code_message">
       <div class="define" v-if="!listenDefineShow">
           <div class="question">
-            <span class="question_span">
+            <span class="question_title">
                 {{ question }}
+            </span>
+          </div>
+          <div class="title">
+            <span class="question_describe">
+              {{ describe }}
             </span>
           </div>
       </div>
@@ -22,7 +27,8 @@ export default {
       //define默认打开状态,Vux后报废
       defineIsShow: true,
       //编程题目
-      question:'这里是在线编程的题目指导区'
+      question: this.$route.query.title,
+      describe: this.$route.query.describe
     }
   },
   components:{
@@ -51,7 +57,6 @@ export default {
   top: 0;
   display: flex;
   justify-content: flex-start;
-
   .define{
     height: 100%;
     width: 92%;
@@ -61,10 +66,18 @@ export default {
     background-color: #eee;
     .question{
       padding: 20px;
-      .question_span{
+      width: 100%;
+      .question_title{
         display: block;
         word-wrap: break-word;
         font-size: 28px;
+      }
+    }
+    .title{
+      width: 100%;
+      padding-left: 30px;
+      .question_describe{
+         color: #a1a1a1;
       }
     }
   }

@@ -10,10 +10,25 @@
 
 <script>
 import VideoCard from "@/components/Video/VideoCard";
+import {GET_VIDEO_LIST} from "@/api/video";
 export default {
   name: "VideoTable",
   components:{
     VideoCard
+  },
+  methods:{
+    //获取视频列表
+    get_videos(){
+      let data = {
+        modelId:'1'
+      }
+      GET_VIDEO_LIST(data).then(res => {
+        console.log(res)
+      })
+    }
+  },
+  mounted() {
+    this.get_videos()
   }
 }
 </script>

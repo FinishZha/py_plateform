@@ -43,7 +43,7 @@
                     <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
                     <el-dropdown-item icon="el-icon-user-solid" :command="beforeHandleCommand('jump', '/project/user')">个人中心</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-collection">我的笔记</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-present">积分商城</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-present" disabled>积分商城</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-back" :command="beforeHandleCommand('leave', )">退出登录</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
