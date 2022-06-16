@@ -37,7 +37,7 @@
             <ul>
               <li>
                 <el-dropdown placement="bottom" @command="handleCommand">
-                  <el-avatar size="medium" :src="USER_INFO.USER_HEAD" v-if="SHOW_LOGIN"></el-avatar>
+                  <el-avatar size="medium" :src="USER_INFO.USER_HEAD || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" v-if="SHOW_LOGIN"></el-avatar>
                   <el-link v-else href="#/project/auth/login">登录 | 注册</el-link>
                   <el-dropdown-menu v-if="SHOW_LOGIN" >
                     <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
@@ -98,6 +98,7 @@ export default {
               break
         case  'leave':
           this.$store.commit('USER_LEAVE')
+          window.localStorage.clear()
           this.$notify({
             type:'success',
             message:'退出成功'

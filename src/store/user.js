@@ -7,13 +7,14 @@ export default {
         USER_INFO:{
             USER_ID:'721157855',
             USER_NAME:'ByteHero',
-            USER_HEAD:'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-            USER_ROAD:'大数据',
+            USER_HEAD:'',
+            USER_ROAD:'',
             USER_POINT:'0',
             USER_EMAIL:'2848135295@qq.com',
             USER_PHONE:'19157720829',
-            USER_SEX:'男',
+            USER_SEX:'男'
         },
+        USER_TOKEN:''
     },
     mutations:{
         //获取用户信息
@@ -24,13 +25,25 @@ export default {
             state.USER_INFO.USER_HEAD = info.header
         },
         //用户登录完成
-        USER_RNTER(state) {
+        USER_ENTER(state) {
             if (state.USER_STATE === 'OUTLINE') return state.USER_STATE = 'ONLINE'
         },
-        //用户状态配置
-
+        //捕获Token
+        GET_TOKEN(state, token){
+            state.USER_TOKEN = token
+        },
         //用户退出登录
         USER_LEAVE(state) {
+            state.USER_INFO = {
+                USER_ID:'',
+                USER_NAME:'',
+                USER_HEAD:'',
+                USER_ROAD:'',
+                USER_POINT:'',
+                USER_EMAIL:'',
+                USER_PHONE:'',
+                USER_SEX:''
+            }
             if (state.USER_STATE === 'ONLINE') return state.USER_STATE = 'OUTLINE'
         }
     },

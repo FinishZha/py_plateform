@@ -6,7 +6,7 @@ import service from '@/api/index'
  * @returns {*}
  * @constructor
  */
-export const UER_LOGIN = function(data){
+export const USER_LOGIN = function(data){
     return service({
         url:'/user/base/userLogin',
         method:'post',

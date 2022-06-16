@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import {UER_LOGIN} from "@/api/user";
+import {USER_LOGIN} from "@/api/user";
+import {SET_TOKEN, SET_USER_ID} from "@/ulits/auth";
 export default {
   name: "Login",
   data(){
@@ -52,6 +53,13 @@ export default {
     }
   },
   methods:{
+    //登录成功后的操作
+    login_success(token, info){
+      SET_TOKEN(token)
+      this.$store.commit('USER_ENTER')
+      this.$store.commit('GET_TOKEN', token)
+      this.$store.commit('EMIT_USER_INFO', info)
+    },
     //登录功能
     login(formName){
       this.$refs[formName].validate((valid) => {
@@ -60,14 +68,13 @@ export default {
             email: this.userInfo.userName,
             password: this.userInfo.passWord
           }
-          UER_LOGIN(user_count).then(res => {
+          USER_LOGIN(user_count).then(res => {
             if(res.data.message.loginInfo.loginCode === 1){
               this.$notify({
                 type:"success",
                 message:'登录成功'
               })
-              this.$store.commit('USER_RNTER')
-              this.$store.commit('EMIT_USER_INFO',res.data.message.loginInfo.userInfo)
+              this.login_success(res.data.message.loginInfo.token, res.data.message.loginInfo.userInfo)
               this.$router.push('/project/home')
             }else {
               this.$notify({

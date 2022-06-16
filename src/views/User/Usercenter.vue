@@ -41,12 +41,23 @@ export default {
     //个人中心卡片跟换
     CHANGE_COMPONENT(target){
       this.componentName = target
+    },
+    //检测是否登录
+    CHECK_LOGIN(){
+      let state = this.$store.state.User.USER_STATE
+      let token = this.$store.state.USER_TOKEN
+      if( token === '' || state === 'OUTLINE' ){
+        this.$router.push('/project/home')
+      }
     }
   },
   components:{
     DefaultInfoCard,
     NoteBookCard,
     SettingCard
+  },
+  mounted() {
+    this.CHECK_LOGIN()
   }
 }
 </script>

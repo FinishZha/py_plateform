@@ -65,7 +65,7 @@ export default {
   data () {
     return {
       // 内部真实的内容
-      code: '',
+      code: '#coding=utf-8',
       // 默认的语法类型
       mode: 'Python',
       // 编辑器实例
@@ -99,9 +99,6 @@ export default {
       modes: [{
         value: 'x-python',
         label: 'Python'
-      },{
-        value: 'javascript',
-        label:'Javascript'
       }],
       //这里是主题模块
       themes:[{
@@ -189,19 +186,18 @@ export default {
     },
     //清除代码
     clean(){
-      this.code = ''
+      this.code = '# coding=utf-8'
       this.coder.setValue(this.value || this.code)
     },
     //运行代码
     runCode(){
-      console.log(this.code)
       let data = {
         code: this.code
       }
       RUN_CODE(data).then(res => {
-        console.log(res)
+        let CODE_RESULT = res.data.message.codeResult
+        this.$store.commit('CATCH_CODE_RESULT', CODE_RESULT)
       })
-      this.$store.commit('CATCH_CODE_RESULT', this.code)
     }
   }
 }

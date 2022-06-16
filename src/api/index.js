@@ -20,9 +20,9 @@ service.interceptors.request.use(config => {
     const token = window.localStorage.getItem('Token')
     if(token){
         // config.params = {'token':token} //如果要求携带在参数中
-        config.headers.token= token; //如果要求携带在请求头中
+        config.headers.Token= token; //如果要求携带在请求头中
     }else {
-        config.headers.token = ''
+        config.headers.Token = ''
     }
     return config
 }, error => {

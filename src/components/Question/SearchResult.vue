@@ -1,8 +1,8 @@
 <template>
   <div class="search_result">
     <el-card shadow="never" class="search_result">
-      <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="emptyShow"></el-empty>
-      <ul v-if="!emptyShow">
+      <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="!questionEmptyShow"></el-empty>
+      <ul v-if="questionEmptyShow">
         <li v-for="item in question" :key="item.title" @click="jump_target(item)">
           <div class="question_card">
             <p>{{ item.title }}</p>
@@ -21,16 +21,13 @@ export default {
   name: "SearchResult",
   data(){
     return {
-      question:[
-        {
-          title:'问题',
-          describe:"这是题干描述1"
-        },{
-          title:'问题1',
-          describe:"这是题干描述2"
-        }
-      ],
-      emptyShow: false
+      question:[{
+        title:'问题',
+        describe:"这是题干描述1"
+      },{
+        title:'问题1',
+        describe:"这是题干描述2"
+      }]
     }
   },
   methods:{
@@ -40,6 +37,13 @@ export default {
     }
   },
   components:{
+
+  },
+  computed:{
+    //题目是否为空
+    questionEmptyShow(){
+      return this.question.length
+    }
   }
 }
 </script>

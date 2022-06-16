@@ -26,12 +26,10 @@ window.onscroll = function (){
 export default {
   name: 'app',
   methods:{
+    //返回顶部
     BACK_TOP(){
       document.documentElement.scrollTop = 0
     }
-  },
-  mounted() {
-
   }
 }
 </script>

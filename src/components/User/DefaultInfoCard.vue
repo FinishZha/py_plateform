@@ -2,10 +2,10 @@
 <div class="default_msg">
   <el-card shadow="hover" class="user_header">
       <div class="user_header_img">
-        <img :src="USER_INFO.USER_HEAD" alt="用户头像">
+        <img :src="USER_INFO.USER_HEAD || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" alt="用户头像">
       </div>
       <div class="user_header_road">
-          <span>你选择的路线是:</span><span id="road_word"> {{ USER_INFO.USER_ROAD  }}</span>
+          <span>你选择的路线是:</span><span id="road_word"> {{ USER_INFO.USER_ROAD || '暂无'}}</span>
           <el-button type="text" @click="change_road">修改线路</el-button>
       </div>
   </el-card>
