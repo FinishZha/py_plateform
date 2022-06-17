@@ -2,10 +2,10 @@
 <div class="book">
   <div class="book_inner">
     <div class="book_inner__left">
-      <LeftNav></LeftNav>
+      <LeftNav @getBook="getBook"></LeftNav>
     </div>
     <div class="book_inner__right">
-      <BookTable></BookTable>
+      <BookTable ref="book_table"></BookTable>
       <div class="book_inner__pagination">
         <PaginationCard></PaginationCard>
       </div>
@@ -24,6 +24,11 @@ export default {
     LeftNav,
     BookTable,
     PaginationCard
+  },
+  methods:{
+    getBook(id){
+      this.$refs.book_table.get_book_list(id)
+    }
   }
 }
 </script>

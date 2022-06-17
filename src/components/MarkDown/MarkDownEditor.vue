@@ -18,7 +18,7 @@ export default {
       value:'',
       ishljs: true,
       fontSize:'20px',
-      previewBackground:'#333',
+      previewBackground:'#ffffff',
       toolbars:{
         bold: true, // 粗体
         italic: true, // 斜体

@@ -1,6 +1,7 @@
 <template>
 <div class="code_question_list">
-  <ul>
+  <el-empty :image-size="200" description="练习题等待补充中..." v-if="emptyShow" style="margin-top: 140px"></el-empty>
+  <ul v-if="!emptyShow">
     <li v-for="item in exercise" :key="item.title">
       <div class="question_card">
         <p>{{ item.title }}</p>
@@ -19,15 +20,13 @@ export default {
   name: "CodeQuestion",
   data(){
     return {
-      exercise:[
-        {
-          title:'Python题干1',
-          describe:"这是题干描述1"
-        },{
-          title:'Python题干2',
-          describe:"这是题干描述2"
-        }
-      ]
+      exercise:[{
+        title:'Python题干1',
+        describe:"这是题干描述1"
+      },{
+        title:'Python题干2',
+        describe:"这是题干描述2"
+      }]
     }
   },
   methods:{
@@ -43,6 +42,11 @@ export default {
     }
   },
   components:{
+  },
+  computed:{
+    emptyShow(){
+      return this.exercise.length <= 0
+    }
   }
 }
 </script>

@@ -49,7 +49,22 @@ const routes = [
        {
          path: 'question',
          name:'Question',
-         component: () => import('@/views/Question/Index')
+         component: () => import('@/views/Question/Index'),
+         redirect: 'question/list',
+         children: [
+           //详情页面
+           {
+             path: 'list',
+             name: 'QuestionList',
+             component: () => import ('@/views/Question/QuestionList')
+           },
+           //详情页面
+           {
+             path: 'detail',
+             name: 'Detail',
+             component: () => import ('@/views/Question/QuestionDetail')
+           }
+         ]
        },
        //权限认证模块
        {
@@ -76,12 +91,6 @@ const routes = [
          name: 'User',
          component: ()=>import('@/views/User/Usercenter')
        },
-       //关于网站
-       {
-         path: 'about',
-         name: 'About',
-         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-       },
        //笔记模块
        {
          path: 'notebook',
@@ -105,7 +114,13 @@ const routes = [
        {
          path: 'consult',
          component: ()=>import('@/views/Consult/Index')
-       }
+       },
+       //关于网站
+       {
+         path: 'about',
+         name: 'About',
+         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+       },
      ]
   },
   //在线编译模块
@@ -115,7 +130,6 @@ const routes = [
     component: () => import('@/views/CodeOnline/Index')
   }
 ]
-
 const router = new VueRouter({
   routes
 })

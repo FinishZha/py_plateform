@@ -1,8 +1,9 @@
 <template>
   <div class="book_table">
-    <el-card shadow="never">
+    <el-card shadow="never" v-loading="loading">
+      <el-empty description="啥也没有哦,等待管理员补货中..." v-if="emptyShow"></el-empty>
       <div class="book_cards">
-        <BookCard v-for="item in 10" :key="item"></BookCard>
+        <BookCard v-for="book in book_list" :key="book.id" :book-img="book.bheader"></BookCard>
       </div>
     </el-card>
   </div>
@@ -10,10 +11,39 @@
 
 <script>
 import BookCard from "@/components/Book/BookCard";
+import {GET_BOOK_LIST} from "@/api/book";
 export default {
   name: "BookTable",
+  data(){
+    return {
+      book_list:[],
+      loading: false
+    }
+  },
   components:{
     BookCard
+  },
+  methods:{
+    get_book_list(id){
+      this.loading = true
+      let data = {
+        modelId: id || 1
+      }
+      GET_BOOK_LIST(data).then(res=>{
+        if(res.request.status === 200){
+          this.loading = false
+          this.book_list = res.data.message.data
+        }
+      })
+    }
+  },
+  computed:{
+    emptyShow(){
+      return this.book_list.length <= 0
+    }
+  },
+  mounted() {
+    this.get_book_list()
   }
 }
 </script>

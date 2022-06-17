@@ -40,8 +40,8 @@
                   <el-avatar size="medium" :src="USER_INFO.USER_HEAD || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" v-if="SHOW_LOGIN"></el-avatar>
                   <el-link v-else href="#/project/auth/login">登录 | 注册</el-link>
                   <el-dropdown-menu slot="dropdown">
-                    <template v-if="SHOW_LOGIN" >
-                      <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT }}</span></el-dropdown-item>
+                    <template v-if="SHOW_LOGIN">
+                      <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT || 0 }}</span></el-dropdown-item>
                       <el-dropdown-item icon="el-icon-user-solid" :command="beforeHandleCommand('jump', '/project/user')">个人中心</el-dropdown-item>
                       <el-dropdown-item icon="el-icon-collection">我的笔记</el-dropdown-item>
                       <el-dropdown-item icon="el-icon-present" disabled>积分商城</el-dropdown-item>

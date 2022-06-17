@@ -3,11 +3,12 @@
     <el-card shadow="never" class="search_result">
       <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="!questionEmptyShow"></el-empty>
       <ul v-if="questionEmptyShow">
-        <li v-for="item in question" :key="item.title" @click="jump_target(item)">
-          <div class="question_card">
-            <p>{{ item.title }}</p>
+        <li v-for="item in question" :key="item.title" @click="jump_target(item, 'detail')">
+          <el-skeleton :rows="4" animated  v-if="skeletonShow"/>
+          <div class="question_card" v-if="!skeletonShow">
+            <p>{{ item.atitle }}</p>
             <p class="describe">
-              题干描述:{{ item.describe }}
+              {{ item.acontent }}
             </p>
           </div>
         </li>
@@ -17,23 +18,42 @@
 </template>
 
 <script>
+import {GET_QUESTIONS_LIST} from "@/api/question";
 export default {
   name: "SearchResult",
   data(){
     return {
       question:[{
-        title:'问题',
-        describe:"这是题干描述1"
-      },{
-        title:'问题1',
-        describe:"这是题干描述2"
-      }]
+        acontent:'',
+        atitle:''
+      }],
+      skeletonShow: true
     }
   },
   methods:{
     //跳转到文章详情
-    jump_target(item){
+    jump_target(item, url){
       console.log(item)
+      this.$router.push({
+        path:url,
+        query: {
+          aid:item.aid
+        }
+      })
+    },
+    //获取所有文章
+    get_question_list(){
+      GET_QUESTIONS_LIST().then(res=>{
+        if(res.data.statusCode === 200){
+          this.question = res.data.message.data
+          this.skeletonShow = false
+        }else {
+          this.$notify({
+            type:"error",
+            message:'问题列表获取失败，请刷新'
+          })
+        }
+      })
     }
   },
   components:{
@@ -43,7 +63,10 @@ export default {
     //题目是否为空
     questionEmptyShow(){
       return this.question.length
-    }
+    },
+  },
+  mounted() {
+    this.get_question_list()
   }
 }
 </script>
@@ -53,7 +76,7 @@ export default {
   ul{
     li{
       list-style: none;
-      height: 120px;
+      min-height: 120px;
       border-bottom: 1px solid #eeeeee;
       &:hover{
         background-color: #f8f8f8;

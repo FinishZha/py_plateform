@@ -81,6 +81,10 @@ export default {
     .user_header_img{
       height: 120px;
       width: 120px;
+      img{
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
     .user_header_road{
       height: 50px;
@@ -89,7 +93,6 @@ export default {
       top: 90px;
       left: 150px;
       line-height: 50px;
-
       span{
         font-size: 16px;
         color: #a1a1a1;
