@@ -9,7 +9,7 @@
        <div class="notebook_list__inner-main" v-loading="loading">
          <el-empty description="当前笔记列表为空，快去做个笔记吧..." v-if="emptyShow"></el-empty>
          <ul v-if="!emptyShow">
-           <li v-for="item in note_book_list" :key="item.nid">
+           <li v-for="item in note_book_list" :key="item.nid" @click="url_jump_query(item)">
              <div class="notebook_card" v-if="!emptyShow">
                <div class="note_top">
                  <span>{{ item.ntitle }}</span>
@@ -41,12 +41,7 @@ export default {
   name: "NoteBookList",
   data(){
     return{
-      note_book_list:[{
-        nid:'',
-        ntitle:'',
-        nmodel:'',
-        createTime:''
-      }],
+      note_book_list:[],
       loading: false
     }
   },
@@ -62,6 +57,15 @@ export default {
           message:'你还未登录，无法体验此功能'
         })
       }
+    },
+    //跳转到笔记详情页
+    url_jump_query(item){
+      this.$router.push({
+        path:'notebookdetail',
+        query:{
+          noteId: item.nid
+        }
+      })
     },
     //根据获取的用户ID查找笔记
     get_note_list(){
@@ -182,7 +186,7 @@ export default {
           }
       }
       .notebook_list__inner-main{
-        height: 300px;
+        height: 400px;
         ul{
           li{
             list-style: none;

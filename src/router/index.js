@@ -107,6 +107,11 @@ const routes = [
              path:'createnotebook',
              name:'CreateNotebook',
              component:() => import('@/views/Notebook/NewNoteBook')
+           },
+           {
+             path:'notebookdetail',
+             name:'NotebookDetail',
+             component:() => import('@/views/Notebook/NoteDetail')
            }
          ]
        },

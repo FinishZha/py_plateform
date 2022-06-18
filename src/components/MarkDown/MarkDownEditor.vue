@@ -3,8 +3,12 @@
       <mavon-editor
           v-model="value"
           :font-size="fontSize"
+          :subfield=subfieldShow
+          :toolbarsFlag= toolbarOpen
+          default-open="preview"
           id="editor"
           ref="editor"
+          :box-shadow="box_shadow"
           :toolbars="toolbars"
           :ishljs="ishljs"/>
   </div>
@@ -12,10 +16,29 @@
 
 <script>
 export default {
+  props:{
+    note_word:{
+      type: String,
+    },
+    box_shadow:{
+      type: Boolean,
+      default: false
+    },
+    //工具栏是否打开
+    toolbarOpen:{
+      type:Boolean,
+      default: true
+    },
+    //是否单栏
+    subfieldShow:{
+      type:Boolean,
+      default: true
+    }
+  },
   name: "MarkDownEditor",
   data() {
     return {
-      value:'',
+      value: this.$props.note_word,
       ishljs: true,
       fontSize:'20px',
       previewBackground:'#ffffff',
@@ -53,8 +76,11 @@ export default {
     }
   },
   methods:{
+
   },
   mounted() {
+  },
+  computed:{
   }
 }
 </script>
