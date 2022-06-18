@@ -3,12 +3,12 @@
     <el-card shadow="never" class="search_result">
       <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="!questionEmptyShow"></el-empty>
       <ul v-if="questionEmptyShow">
-        <li v-for="item in question" :key="item.title" @click="jump_target(item, 'detail')">
-          <el-skeleton :rows="4" animated  v-if="skeletonShow"/>
+        <el-skeleton :rows="12" animated  v-if="skeletonShow"/>
+        <li v-for="item in question" :key="item.title" @click="jump_target(item, 'detail')" v-if="!skeletonShow">
           <div class="question_card" v-if="!skeletonShow">
             <p>{{ item.atitle }}</p>
             <p class="describe">
-              {{ item.acontent }}
+              {{ item.aname }}
             </p>
           </div>
         </li>
@@ -25,7 +25,8 @@ export default {
     return {
       question:[{
         acontent:'',
-        atitle:''
+        atitle:'',
+        aname:''
       }],
       skeletonShow: true
     }

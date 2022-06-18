@@ -23,6 +23,7 @@ export default {
 .book_card{
   .el-card{
     margin: 0 auto;
+    cursor: pointer;
     .book{
         height: 100%;
         width: 100%;

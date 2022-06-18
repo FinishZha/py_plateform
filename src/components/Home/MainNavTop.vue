@@ -6,37 +6,37 @@
            <ul>
              <li>
                <img src="../../../public/hot.png" width="50px">
-               <el-link :underline="false">今日热点</el-link>
+               <el-link :underline="false" @click="wait">今日热点</el-link>
              </li>
              <li>
                <img src="../../../public/talk.png" width="50px">
-               <el-link :underline="false">热门话题</el-link>
+               <el-link :underline="false" @click="wait">热门话题</el-link>
              </li>
              <li>
                <img src="../../../public/no.png" width="50px">
-               <el-link :underline="false">学习积分排行</el-link>
+               <el-link :underline="false" @click="wait">学习积分排行</el-link>
              </li>
            </ul>
         </div>
         <div class="main_nav__content-center">
           <ul>
             <li>
-              <el-link icon="el-icon-coordinate" :underline="false">实用工具</el-link>
+              <el-link icon="el-icon-coordinate" :underline="false" @click="wait">实用工具</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-monitor" :underline="false">环境配置</el-link>
+              <el-link icon="el-icon-monitor" :underline="false" href="/#/project/question/detail?aid=4">环境配置</el-link>
             </li>
             <li>
               <el-link icon="el-icon-reading" :underline="false" href="/#/project/notebook">笔记</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-suitcase" :underline="false">面试题</el-link>
+              <el-link icon="el-icon-suitcase" :underline="false" @click="wait">面试题</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-position" :underline="false">方向导向</el-link>
+              <el-link icon="el-icon-position" :underline="false" href="/#/project/consult">方向导向</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-more" :underline="false">更多</el-link>
+              <el-link icon="el-icon-more" :underline="false" @click="wait">更多</el-link>
             </li>
           </ul>
         </div>
@@ -44,7 +44,7 @@
           <ul>
             <li>
               <img src="../../../public/everyday.png" alt="">
-              <el-link :underline="false">每周精选</el-link>
+              <el-link :underline="false" @click="wait">每周精选</el-link>
             </li>
             <li>
               <img src="../../../public/video.png" alt="">
@@ -52,7 +52,7 @@
             </li>
             <li>
               <img src="../../../public/gift.png" alt="">
-              <el-link :underline="false">礼包兑换</el-link>
+              <el-link :underline="false" @click="wait">礼包兑换</el-link>
             </li>
             <li>
               <img src="../../../public/admin.png" alt="">
@@ -67,7 +67,15 @@
 
 <script>
 export default {
-  name: "MainNavTop"
+  name: "MainNavTop",
+  methods:{
+    wait(){
+      this.$notify({
+        type:'warning',
+        message:'功能维护中，敬请期待！'
+      })
+    }
+  }
 }
 </script>
 

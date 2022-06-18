@@ -10,7 +10,7 @@
           <el-empty :image-size="200" description="啥也没有..." v-if="!emptyShow && !skeletonShow"></el-empty>
           <el-skeleton :rows="10" animated v-if="skeletonShow"/>
           <div class="detail_inner__main-content">
-                <h3>{{ detailContent.atitle }}</h3>
+                <h1>{{ detailContent.atitle }}</h1>
                 <MarkDownShow :content="detailContent.acontent" v-if="!skeletonShow"></MarkDownShow>
           </div>
         </div>
@@ -87,6 +87,9 @@ export default {
       .detail_inner__main{
         height: 100%;
         .detail_inner__main-content{
+          h1{
+            text-align: center;
+          }
         }
       }
     }
