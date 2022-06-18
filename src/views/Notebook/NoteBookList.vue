@@ -9,10 +9,10 @@
        <div class="notebook_list__inner-main" v-loading="loading">
          <el-empty description="当前笔记列表为空，快去做个笔记吧..." v-if="emptyShow"></el-empty>
          <ul v-if="!emptyShow">
-           <li v-for="item in note_book_list" :key="item.nid" @click="url_jump_query(item)">
+           <li v-for="item in note_book_list" :key="item.nid">
              <div class="notebook_card" v-if="!emptyShow">
                <div class="note_top">
-                 <span>{{ item.ntitle }}</span>
+                 <el-link @click="url_jump_query(item)">{{ item.ntitle }}</el-link>
                  <div class="btn">
                    <el-button type="warning" size="mini" plain @click="delete_note(item.nid)">删除</el-button>
                  </div>
@@ -207,6 +207,9 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                .el-link{
+                  font-size: 20px;
+                }
                 .btn{
                   margin-right: 20px;
                 }

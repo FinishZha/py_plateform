@@ -73,6 +73,7 @@ export default {
               })
               this.title = ''
               this.modelId = ''
+              this.$router.back()
             }else {
               this.$notify({
                 type:'error',
