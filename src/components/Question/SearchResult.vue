@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import {GET_QUESTIONS_LIST} from "@/api/question";
-import {SEARCH_TARGET} from "@/api/article";
+import {GET_QUESTIONS_LIST, SEARCH_TARGET} from "@/api/question";
 export default {
   name: "SearchResult",
   data(){

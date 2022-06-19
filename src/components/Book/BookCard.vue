@@ -1,5 +1,5 @@
 <template>
-  <div class="book_card" @click="show">
+  <div class="book_card" @click="jump_book_detail">
     <el-card shadow="hover">
       <div class="book">
         <img :src="bookImg" alt="">
@@ -13,12 +13,22 @@ export default {
   props:{
     bookImg:{
       type: String
+    },
+    bookId:{
+      type: Number
     }
   },
   name: "BookCard",
   methods:{
-    show(){
-      console.log('1')
+
+    //跳转至书籍详情页面
+    jump_book_detail(){
+      this.$router.push({
+        path:'bookdetail',
+        query:{
+          bid: this.$props.bookId
+        }
+      })
     }
   }
 }

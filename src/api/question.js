@@ -13,7 +13,12 @@ export const GET_QUESTIONS_LIST = function (){
     })
 }
 
-
+/**
+ * 获取文章详情
+ * @param data
+ * @returns {*}
+ * @constructor
+ */
 export const GET_QUESTIONS_DETAIL = function (data){
     return service({
         url:'/article/common/queryOneArticleById',
@@ -22,5 +27,17 @@ export const GET_QUESTIONS_DETAIL = function (data){
     })
 }
 
-
+/**
+ *  根据关键字搜索问题
+ * @param query
+ * @returns {*}
+ * @constructor
+ */
+export const SEARCH_TARGET = function (query){
+    return service({
+        url:'/article/common/listProblemByWord',
+        method:'get',
+        params:query
+    })
+}
 

@@ -3,7 +3,7 @@
     <el-card shadow="never" v-loading="loading">
       <el-empty description="啥也没有哦,等待管理员补货中..." v-if="emptyShow"></el-empty>
       <div class="book_cards">
-        <BookCard v-for="book in book_list" :key="book.id" :book-img="book.bheader"></BookCard>
+        <BookCard v-for="book in book_list" :key="book.bid" :book-img="book.bheader" :book-id="book.bid"></BookCard>
       </div>
     </el-card>
   </div>
@@ -31,15 +31,15 @@ export default {
         modelId: id || 1
       }
       GET_BOOK_LIST(data).then(res=>{
+        console.log(res)
         if(res.request.status === 200){
           this.loading = false
           this.book_list = res.data.message.data
         }
       })
     },
-    //输出
-    show_book(item){
-      console.log(item)
+    show(){
+      console.log('1')
     }
   },
   computed:{

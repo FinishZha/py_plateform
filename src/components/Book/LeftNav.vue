@@ -52,8 +52,6 @@ export default {
     width: 200px;
     height: auto;
     min-height: 600px;
-    position: fixed;
-    top: 83px;
     .el-menu{
       border:0 !important;
     }
