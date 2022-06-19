@@ -1,7 +1,7 @@
 <template>
   <div class="book_list">
     <el-card shadow="never" v-loading="loading">
-      <el-empty description="啥也没有哦,等待管理员补货中..." v-if="emptyShow"></el-empty>
+      <el-empty :description="description" v-if="emptyShow"></el-empty>
       <div class="book_cards">
         <BookCard v-for="book in book_list" :key="book.bid" :book-img="book.bheader" :book-id="book.bid"></BookCard>
       </div>
@@ -17,7 +17,8 @@ export default {
   data(){
     return {
       book_list:[],
-      loading: false
+      loading: false,
+      description:'啥也没有哦,等待管理员补货中...'
     }
   },
   components:{
@@ -31,7 +32,6 @@ export default {
         modelId: id || 1
       }
       GET_BOOK_LIST(data).then(res=>{
-        console.log(res)
         if(res.request.status === 200){
           this.loading = false
           this.book_list = res.data.message.data

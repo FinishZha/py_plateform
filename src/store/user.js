@@ -3,9 +3,9 @@ export default {
         //用户状态
         //OUTLINE   离线
         //ONLINE   在线
-        USER_STATE: 'ONLINE',
+        USER_STATE: 'OUTLINE',
         USER_INFO:{
-            USER_ID:'10',
+            USER_ID:'',
             USER_NAME:'ByteHero',
             USER_HEAD:'',
             USER_ROAD:'',

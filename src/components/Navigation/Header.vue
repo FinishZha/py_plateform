@@ -36,11 +36,11 @@
           <div class="nav_header__right-in">
             <ul>
               <li>
-                <el-dropdown placement="bottom" @command="handleCommand">
+                <el-link v-if="!SHOW_LOGIN" href="#/project/auth/login">登录 | 注册</el-link>
+                <el-dropdown placement="bottom" @command="handleCommand" v-if="SHOW_LOGIN">
                   <el-avatar size="medium" :src="USER_INFO.USER_HEAD || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" v-if="SHOW_LOGIN"></el-avatar>
-                  <el-link v-else href="#/project/auth/login">登录 | 注册</el-link>
                   <el-dropdown-menu slot="dropdown">
-                    <template v-if="SHOW_LOGIN">
+                    <template>
                       <el-dropdown-item disabled>我的积分: <span>{{ USER_INFO.USER_POINT || 0 }}</span></el-dropdown-item>
                       <el-dropdown-item icon="el-icon-user-solid" :command="beforeHandleCommand('jump', '/project/user')">个人中心</el-dropdown-item>
                       <el-dropdown-item icon="el-icon-collection" :command="beforeHandleCommand('jump', '/project/notebook')">我的笔记</el-dropdown-item>
@@ -60,7 +60,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Header",
   data(){

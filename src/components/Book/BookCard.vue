@@ -20,15 +20,22 @@ export default {
   },
   name: "BookCard",
   methods:{
-
     //跳转至书籍详情页面
     jump_book_detail(){
-      this.$router.push({
-        path:'bookdetail',
-        query:{
-          bid: this.$props.bookId
-        }
-      })
+     let user_status = this.$store.state.User.USER_STATE
+      if(user_status === 'OUTLINE'){
+        this.$notify({
+          type:"warning",
+          message:'当前未登录，登录后才可以看本书哦'
+        })
+      }else {
+        this.$router.push({
+          path:'bookdetail',
+          query:{
+            bid: this.$props.bookId
+          }
+        })
+      }
     }
   }
 }
