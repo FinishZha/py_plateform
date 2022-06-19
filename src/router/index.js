@@ -31,7 +31,20 @@ const routes = [
        {
          path: 'book',
          name: 'Book',
-         component: () => import('@/views/Book/Index')
+         component: () => import('@/views/Book/Index'),
+         redirect: 'book/booklist',
+         children: [
+           {
+             path: 'bookdetail',
+             name: 'BookDetail',
+             component: () => import('@/views/Book/BookDetail')
+           },
+           {
+             path: 'booklist',
+             name:'BookList',
+             component: () => import('@/views/Book/BookTable')
+           }
+         ]
        },
        //在线练习模块
        {

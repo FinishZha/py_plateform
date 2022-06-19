@@ -1,5 +1,5 @@
 <template>
-  <div class="search_result">
+  <div class="search_result" v-loading="loading">
     <el-card shadow="never" class="search_result">
       <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="!questionEmptyShow"></el-empty>
       <ul v-if="questionEmptyShow">
@@ -19,6 +19,7 @@
 
 <script>
 import {GET_QUESTIONS_LIST} from "@/api/question";
+import {SEARCH_TARGET} from "@/api/article";
 export default {
   name: "SearchResult",
   data(){
@@ -28,7 +29,8 @@ export default {
         atitle:'',
         aname:''
       }],
-      skeletonShow: true
+      skeletonShow: true,
+      loading:false
     }
   },
   methods:{
@@ -52,6 +54,28 @@ export default {
           this.$notify({
             type:"error",
             message:'问题列表获取失败，请刷新'
+          })
+        }
+      })
+    },
+    //关键字搜索
+    search_target(word){
+      this.loading = true
+      let query = {
+        word: word
+      }
+      SEARCH_TARGET(query).then(res=>{
+        if(res.status === 200 && res.data.statusCode === 200){
+          this.$notify({
+            type:'success',
+            message:`成功为您筛选出以下${res.data.message.data.length}条结果`
+          })
+          this.question = res.data.message.data
+          this.loading = false
+        }else {
+          this.$notify({
+            type:"error",
+            message:'搜索异常，请稍后重试'
           })
         }
       })

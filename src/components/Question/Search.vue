@@ -1,8 +1,8 @@
 <template>
 <div class="search">
   <el-card shadow="never" class="search_input">
-    <el-input placeholder="请输入你想要搜索的问题" v-model="search_data" class="input-with-select">
-      <el-button slot="append" icon="el-icon-search">问一下</el-button>
+    <el-input placeholder="请输入你想要搜索的问题" v-model="search_data" :validate-event="false" clearable class="input-with-select">
+      <el-button slot="append" icon="el-icon-search" @click="send_search">问一下</el-button>
     </el-input>
     <div class="hot_question">
       <ul>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   name: "SearchInput",
   data(){
@@ -34,7 +35,17 @@ export default {
           'title':'第三方包安装成功，但是pycharm引入（import）失败',
           'url':''
         }
-      ]
+      ],
+      rules:{
+        search_data:[
+          { required: true, message: '请输入搜索关键字' }
+        ]
+      }
+    }
+  },
+  methods:{
+    send_search(){
+      this.$emit('search', this.search_data)
     }
   }
 }

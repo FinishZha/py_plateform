@@ -1,5 +1,5 @@
 <template>
-  <div class="book_table">
+  <div class="book_list">
     <el-card shadow="never" v-loading="loading">
       <el-empty description="啥也没有哦,等待管理员补货中..." v-if="emptyShow"></el-empty>
       <div class="book_cards">
@@ -13,7 +13,7 @@
 import BookCard from "@/components/Book/BookCard";
 import {GET_BOOK_LIST} from "@/api/book";
 export default {
-  name: "BookTable",
+  name: "BookList",
   data(){
     return {
       book_list:[],
@@ -24,6 +24,7 @@ export default {
     BookCard
   },
   methods:{
+    //获取指定模块的书籍列表
     get_book_list(id){
       this.loading = true
       let data = {
@@ -35,6 +36,10 @@ export default {
           this.book_list = res.data.message.data
         }
       })
+    },
+    //输出
+    show_book(item){
+      console.log(item)
     }
   },
   computed:{
@@ -49,7 +54,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.book_table{
+.book_list{
   margin-bottom: 10px;
   .el-card{
     width: 100%;

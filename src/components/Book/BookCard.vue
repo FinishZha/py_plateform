@@ -1,5 +1,5 @@
 <template>
-  <div class="book_card">
+  <div class="book_card" @click="show">
     <el-card shadow="hover">
       <div class="book">
         <img :src="bookImg" alt="">
@@ -15,7 +15,12 @@ export default {
       type: String
     }
   },
-  name: "BookCard"
+  name: "BookCard",
+  methods:{
+    show(){
+      console.log('1')
+    }
+  }
 }
 </script>
 
