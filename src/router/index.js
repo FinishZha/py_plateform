@@ -178,6 +178,12 @@ const routes = [
     path: '/codeonline',
     name: 'CodeOnline',
     component: () => import('@/views/CodeOnline/Index')
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('@/views/ErrorPages/404'),
+    meta: {title: '404'}
   }
 ]
 window.document.title = PROJECT_NAME
