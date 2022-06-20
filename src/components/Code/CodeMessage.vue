@@ -70,7 +70,7 @@ export default {
       .question_title{
         display: block;
         word-wrap: break-word;
-        font-size: 28px;
+        font-size: 20px;
       }
     }
     .title{

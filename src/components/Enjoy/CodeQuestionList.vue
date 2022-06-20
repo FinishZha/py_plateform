@@ -4,9 +4,9 @@
   <ul v-if="!emptyShow">
     <li v-for="item in exercise" :key="item.title">
       <div class="question_card">
-        <p>{{ item.title }}</p>
+        <p>{{ item.questionContent }}</p>
         <p class="describe">
-          题干描述:{{ item.describe }}
+          题干描述:{{ item.questionContent }}
         </p>
         <el-button type="primary" size="mini" plain @click="go_playground(item)">去试一试</el-button>
       </div>
@@ -16,27 +16,43 @@
 </template>
 
 <script>
+import {GET_EXERCISES} from "@/api/code";
+
 export default {
   name: "CodeQuestion",
   data(){
     return {
-      exercise:[{
-        title:'Python题干1',
-        describe:"这是题干描述1"
-      },{
-        title:'Python题干2',
-        describe:"这是题干描述2"
-      }]
+      exercise:[]
     }
   },
   methods:{
     //跳转到练习场
     go_playground(item){
-      this.$router.push({
-        path:'/codeonline',
-        query:{
-          title: item.title,
-          describe: item.describe
+        let user_state = this.$store.state.User.USER_STATE
+        if(user_state === 'OUTLINE'){
+          this.$notify({
+            type:'warning',
+            message:'暂未登录，不可使用该功能'
+          })
+        }else {
+          this.$router.push({
+            path:'/codeonline',
+            query:{
+              title: item.questionContent,
+              describe: item.questionContent
+            }
+          })
+        }
+    },
+    //获取题目列表
+    get_exercises(){
+      let query = {
+        modelId:'1'
+      }
+      GET_EXERCISES(query).then(res => {
+        console.log( res.data.message.questionInfo)
+        if(res.status === 200){
+            this.exercise = res.data.message.questionInfo
         }
       })
     }
@@ -47,6 +63,9 @@ export default {
     emptyShow(){
       return this.exercise.length <= 0
     }
+  },
+  mounted() {
+    this.get_exercises()
   }
 }
 </script>

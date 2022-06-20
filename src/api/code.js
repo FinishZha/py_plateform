@@ -13,3 +13,12 @@ export const RUN_CODE = function (data){
         data: data
     })
 }
+
+
+export const GET_EXERCISES = function (query){
+    return service({
+        url:'/question/common/listQuestionByModel',
+        method: 'get',
+        params: query
+    })
+}
