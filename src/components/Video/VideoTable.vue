@@ -16,23 +16,7 @@ export default {
   name: "VideoTable",
   data(){
     return {
-      videoList:[{
-        id:1,
-        img:'1515165',
-        url:'s121'
-      },{
-        id:1,
-        img:'1515165',
-        url:'s121'
-      },{
-        id:1,
-        img:'1515165',
-        url:'s121'
-      },{
-        id:1,
-        img:'1515165',
-        url:'s121'
-      }]
+      videoList:[]
     }
   },
   components:{
