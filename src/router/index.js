@@ -25,7 +25,39 @@ const routes = [
        {
          path: 'video',
          name: 'Video',
-         component: () => import('@/views/VideoStudy/Index')
+         component: () => import('@/views/VideoStudy/Index'),
+         redirect: 'video/videostudy',
+         children: [
+           {
+             path: 'videostudy',
+             name:'VideoStudy',
+             component:() => import('@/views/VideoStudy/VideoStudy')
+           },
+           {
+             path: 'videodetail',
+             name:'VideoDetail',
+             component:() => import('@/views/VideoStudy/VudeoDetail')
+           }
+         ]
+       },
+       //热点模块
+       {
+         path: 'hot',
+         name:'Hot',
+         component: () => import('@/views/New/Index'),
+         redirect: 'hot/news',
+         children: [
+           {
+             path: 'news',
+             name:'NewsList',
+             component:()=>import('@/views/New/News')
+           },
+           {
+             path: 'newsdetail',
+             name:'NewsDetail',
+             component:()=>import('@/views/New/NewDetails')
+           }
+         ]
        },
        //书库模块
        {

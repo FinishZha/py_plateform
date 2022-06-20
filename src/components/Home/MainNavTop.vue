@@ -27,7 +27,7 @@
               <el-link icon="el-icon-monitor" :underline="false" href="/#/project/question/detail?aid=4">环境配置</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-reading" :underline="false" href="/#/project/notebook">笔记</el-link>
+              <el-link icon="el-icon-reading" :underline="false"  @click="user_state_check('notebook')" >笔记</el-link>
             </li>
             <li>
               <el-link icon="el-icon-suitcase" :underline="false" @click="wait">面试题</el-link>
@@ -74,6 +74,18 @@ export default {
         type:'warning',
         message:'功能维护中，敬请期待！'
       })
+    },
+    //登录鉴权
+    user_state_check(url){
+      let user_state = this.$store.state.User.USER_STATE
+      if(user_state === 'OUTLINE'){
+        this.$notify({
+          type:'warning',
+          message:'暂未登录，不可使用该功能'
+        })
+      }else {
+        this.$router.push(url)
+      }
     }
   }
 }

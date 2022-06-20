@@ -5,8 +5,27 @@
         <img :src="USER_INFO.USER_HEAD || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" alt="用户头像">
       </div>
       <div class="user_header_road">
-          <span>你选择的路线是:</span><span id="road_word"> {{ USER_INFO.USER_ROAD || '暂无'}}</span>
-          <el-button type="text" @click="change_road">修改线路</el-button>
+          <span>你选择的路线是:</span><span id="road_word"> {{ USER_INFO.USER_ROAD | road_filler}}</span>
+          <el-button type="text" @click="open_dialog">修改线路</el-button>
+          <el-dialog title="修改线路" :visible.sync="dialogFormVisible">
+            <el-form :model="USER_INFO">
+              <el-form-item label="活动区域" :label-width="formLabelWidth">
+                <el-select v-model="USER_INFO.USER_ROAD" placeholder="请选择学习线路">
+                  <el-option label="Python基础" value="1"></el-option>
+                  <el-option label="Python高级" value="2"></el-option>
+                  <el-option label="人工智能" value="3"></el-option>
+                  <el-option label="爬虫" value="4"></el-option>
+                  <el-option label="大数据" value="5"></el-option>
+                  <el-option label="Python后端开发" value="6"></el-option>
+                  <el-option label="自动化运维" value="7"></el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="dialogFormVisible = false">取 消</el-button>
+              <el-button type="primary" @click="change_road">确 定</el-button>
+            </div>
+          </el-dialog>
       </div>
   </el-card>
   <el-card shadow="hover" class="user_info">
@@ -35,27 +54,74 @@
 </template>
 
 <script>
+import {CHANGE_USER_NAME, CHANGE_USER_ROAD} from "@/api/user";
 export default {
   name: "Default",
   data(){
     return{
       //表单label位置
-      labelPosition:'left'
+      labelPosition:'left',
+      //对话框显示
+      dialogFormVisible:false,
+      formLabelWidth:'120px'
     }
   },
   methods:{
+    //打开对话框
+    open_dialog(){
+      this.dialogFormVisible = true
+    },
     //修改用户信息
     change_user_info(){
-      this.$notify({
-        type:"success",
-        message:"个人信息修改成功"
-      })
+     this.$confirm(`确定要更改用户名为${this.USER_INFO.USER_NAME}吗？`, '提示', {
+       confirmButtonText:'确定更改',
+       cancelButtonText:'取消',
+       type:"warning"
+     }).then(_=>{
+       let data = {
+         userId: this.$store.state.User.USER_INFO.USER_ID,
+         username: this.$store.state.User.USER_INFO.USER_NAME
+       }
+       CHANGE_USER_NAME(data).then(res => {
+         if(res.status === 200 && res.data.message.updateCode === 1){
+           this.$notify({
+             type:"success",
+             message:"个人信息修改成功"
+           })
+         }else {
+           this.$notify({
+             type:"error",
+             message:"个人信息修改失败，请稍后重试"
+           })
+         }
+       })
+     }).catch(_=>{
+       this.$notify({
+         type:'info',
+         message:'取消更改成功'
+       })
+     })
     },
     //修改用户线路
     change_road(){
-      this.$notify({
-        type:"success",
-        message:"学习线路修改成功"
+      let data = {
+        userId: this.$store.state.User.USER_INFO.USER_ID,
+        userDirection: this.$store.state.User.USER_INFO.USER_ROAD
+      }
+      CHANGE_USER_ROAD(data).then(res=>{
+        console.log(res)
+        if(res.status === 200 && res.data.message.updateInfo.updateCode === 1){
+          this.$notify({
+            type:"success",
+            message:`学习线路成功修改为${res.data.message.updateInfo.directionName}`
+          })
+        }else {
+          this.$notify({
+            type:"error",
+            message:`学习线路修改失败`
+          })
+        }
+        this.dialogFormVisible = false
       })
     }
   },
@@ -63,6 +129,38 @@ export default {
     USER_INFO() {
       return this.$store.state.User.USER_INFO;
     }
+  },
+  filters:{
+    //标签文字转换
+    road_filler(num){
+      let tag_word = ''
+      switch (num){
+        case '1':
+          tag_word = 'Python基础'
+          break
+        case '2':
+          tag_word = 'Python高级'
+          break
+        case '3':
+          tag_word = '人工智能'
+          break
+        case '4':
+          tag_word = '爬虫'
+          break
+        case '5':
+          tag_word = '大数据'
+          break
+        case '6':
+          tag_word = 'Python后端开发'
+          break
+        case '7':
+          tag_word = '自动化运维'
+          break
+        default:
+          tag_word = '暂未选择'
+      }
+      return tag_word
+    },
   }
 }
 </script>

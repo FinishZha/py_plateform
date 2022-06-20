@@ -6,7 +6,7 @@ export default {
         USER_STATE: 'OUTLINE',
         USER_INFO:{
             USER_ID:'',
-            USER_NAME:'ByteHero',
+            USER_NAME:'你还没登录呢',
             USER_HEAD:'',
             USER_ROAD:'',
             USER_POINT:'0',
@@ -23,6 +23,7 @@ export default {
             state.USER_INFO.USER_ID = info.id
             state.USER_INFO.USER_EMAIL = info.email
             state.USER_INFO.USER_HEAD = info.header
+            state.USER_INFO.USER_ROAD = info.directionId.toString()
         },
         //用户登录完成
         USER_ENTER(state) {

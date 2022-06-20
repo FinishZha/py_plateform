@@ -41,3 +41,15 @@ export const SEARCH_TARGET = function (query){
     })
 }
 
+/**
+ * 获取六条热点问题
+ * @returns {*}
+ * @constructor
+ */
+export const  GET_HOT_QUESTION = function (){
+    return service({
+        url:'/article/common/listArticleByRand',
+        method:'get',
+        params:''
+    })
+}

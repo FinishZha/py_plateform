@@ -1,8 +1,8 @@
 <template>
  <div class="banner">
      <el-carousel :interval="8000" :style="bannerStyle">
-       <el-carousel-item v-for="item in imgList" :key="item">
-            <img :src="item">
+       <el-carousel-item v-for="item in imgList" :key="item.id">
+            <img :src="item.url">
        </el-carousel-item>
      </el-carousel>
  </div>
@@ -18,12 +18,27 @@ export default {
       bannerStyle:{
         height:'400px'
       },
-      imgList:[
-          'https://www.py.cn/src/img/index/pybanner.png',
-          'https://www.py.cn/src/img/index/new3.png',
-          'https://www.py.cn/src/img/index/ibanner.jpg',
-          'https://www.py.cn/src/img/index/new2.png',
-      ]
+      imgList:[{
+        id:'1',
+        url:'http://106.55.103.152/file/image/baner/dsj.png',
+        link:''
+      },{
+        id:'2',
+        url:'http://106.55.103.152/file/image/baner/pygj.jpg',
+        link:''
+      },{
+        id:'3',
+        url:'http://106.55.103.152/file/image/baner/pypc.jpg',
+        link:''
+      },{
+        id:'4',
+        url:'http://106.55.103.152/file/image/baner/rgzn.jpg',
+        link:''
+      },{
+        id:'5',
+        url:'http://106.55.103.152/file/image/baner/zdh.jpg',
+        link:''
+      }]
     }
   }
 }

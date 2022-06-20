@@ -16,10 +16,8 @@ service.interceptors.request.use(config => {
         'Content-Type':'application/json' //配置请求头
     }
     //注意使用token的时候需要引入cookie方法或者用本地localStorage等方法，推荐js-cookie
-    // const token = getCookie('');//这里取token之前，你肯定需要先拿到token,存一下
     const token = window.localStorage.getItem('Token')
     if(token){
-        // config.params = {'token':token} //如果要求携带在参数中
         config.headers.Token= token; //如果要求携带在请求头中
     }else {
         config.headers.Token = ''

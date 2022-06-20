@@ -2,12 +2,12 @@
 <div class="page_content_end">
   <el-card shadow="hover">
     <div class="page_content__end-title">
-      <h3>文章精选</h3>
+      <h3>问题精选</h3>
     </div>
     <div class="page_content__end-main">
         <ul>
-          <li v-for="item in articleList" :key="item.id">
-            <el-link href="">{{item.title}}</el-link>
+          <li v-for="item in articleList" :key="item.aid" @click="jump_target(item,'question/detail')">
+            <el-link href="">{{item.aname}}</el-link>
           </li>
         </ul>
     </div>
@@ -19,32 +19,39 @@
 </template>
 
 <script>
+import {GET_HOT_QUESTION} from "@/api/question";
 export default {
   name: "PageContentEnd",
   data(){
     return{
-      articleList:[
-        {
-          id:'1',
-          title:'精选文章1'
-        },{
-          id:'12',
-          title:'精选文章2'
-        },{
-          id:'3',
-          title:'精选文章3'
-        },{
-          id:'4',
-          title:'精选文章4'
-        },{
-          id:'5',
-          title:'精选文章5'
-        },{
-          id:'6',
-          title:'精选文章6'
-        }
-      ]
+      articleList:[]
     }
+  },
+  methods:{
+    //获取问题精选
+    get_hot_question(){
+      GET_HOT_QUESTION().then(res=>{
+        this.articleList = res.data.message.data
+      }).catch(()=>{
+        this.$notify({
+          type:"error",
+          message:'获取问题精选列表失败'
+        })
+      })
+    },
+    //跳转到文章详情
+    jump_target(item, url){
+      console.log(item)
+      this.$router.push({
+        path:url,
+        query: {
+          aid:item.aid
+        }
+      })
+    },
+  },
+  mounted() {
+    this.get_hot_question()
   }
 }
 </script>

@@ -3,12 +3,13 @@
      <el-card shadow="hover">
           <div class="hot_news__title">
             <span>Python热点</span>
-            <el-link :underline="false">更多</el-link>
+            <el-link :underline="false" @click="jump_new_list">更多</el-link>
           </div>
           <div class="hot_news__list">
-            <ul>
-              <li v-for="(news,index) in six_hot_list" :key="news.id">
-                <el-link :href="news.link">{{ news.title }}</el-link>
+            <el-empty description="暂时还没有什么..." v-if="showEmpty"></el-empty>
+            <ul v-else>
+              <li v-for="news in news" :key="news.nid">
+                <el-link @click="jump_new_detail(news)">{{ news.ntitle }}</el-link>
               </li>
             </ul>
           </div>
@@ -17,43 +18,47 @@
 </template>
 
 <script>
+import {GET_HOT_MEWS_LIST} from "@/api/news";
 export default {
   name: "HotNews",
   data(){
     return {
-      news:[
-        {
-          id:'1',
-          title:'这是新闻一',
-          link:'/'
-        },{
-          id:'2',
-          title:'这是新闻二',
-          link:'/'
-        },{
-          id:'3',
-          title:'这是新闻三',
-          link:'/'
-        },{
-          id:'4',
-          title:'这是新闻四',
-          link:'/'
-        },{
-          id:'5',
-          title:'这是新闻五',
-          link:'/'
-        },{
-          id:'6',
-          title:'这是新闻六',
-          link:'/'
+      news:[]
+    }
+  },
+  methods:{
+    //获取热点新闻列表
+    get_hot_news_list(){
+      GET_HOT_MEWS_LIST().then(res=>{
+        this.news = res.data.message.data
+      }).catch(()=>{
+        this.$notify({
+          type:"error",
+          message:'获取热点新闻列表失败'
+        })
+      })
+    },
+    //跳转到详情列表
+    jump_new_list(){
+      this.$router.push('hot')
+    },
+    //跳转到新闻具体页面
+    jump_new_detail(news){
+      this.$router.push({
+        path:'hot/newsdetail',
+        query:{
+          newsId: news.nid
         }
-      ]
+      })
     }
   },
   computed:{
-    six_hot_list(){
-      return this.news
+    showEmpty(){
+      return this.news.length === 0
     }
+  },
+  mounted() {
+    this.get_hot_news_list()
   }
 }
 </script>

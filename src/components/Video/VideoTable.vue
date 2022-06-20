@@ -28,7 +28,6 @@ export default {
     }
   },
   mounted() {
-    this.get_videos()
   }
 }
 </script>

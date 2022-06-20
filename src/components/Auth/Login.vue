@@ -39,8 +39,8 @@ export default {
   data(){
     return{
       userInfo:{
-        userName:'',
-        passWord:''
+        userName:'2848135295@qq.com',
+        passWord:'zdc200081'
       },
       login_rule:{
         userName: [
