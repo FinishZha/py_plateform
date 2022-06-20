@@ -5,7 +5,8 @@
       <h3>问题精选</h3>
     </div>
     <div class="page_content__end-main">
-        <ul>
+        <el-empty description="啥也没有..." v-if="emptyShow"></el-empty>
+        <ul v-if="!emptyShow">
           <li v-for="item in articleList" :key="item.aid" @click="jump_target(item,'question/detail')">
             <el-link href="">{{item.aname}}</el-link>
           </li>
@@ -49,6 +50,11 @@ export default {
         }
       })
     },
+  },
+  computed:{
+    emptyShow(){
+      return this.articleList.length === 0
+    }
   },
   mounted() {
     this.get_hot_question()
