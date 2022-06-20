@@ -8,7 +8,7 @@ import service from "@/api/index";
  */
 export const GET_BOOK_LIST = function (query){
     return service({
-        url:'/book/common/listBookByModel',
+        url:'/book/base/listBookByModel',
         method:'get',
         params:query
     })
@@ -23,7 +23,7 @@ export const GET_BOOK_LIST = function (query){
  */
 export const GET_TARGET_BOOK = function (query){
     return service({
-        url:'/book/common/queryOneBookById',
+        url:'/book/base/queryOneBookById',
         method:'get',
         params:query
     })

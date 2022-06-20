@@ -21,7 +21,7 @@ export default {
 
 <style lang="less" scoped>
 .video_detail{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .video_detail_inner{

@@ -128,7 +128,6 @@ export default {
   width: 100%;
   height: 100%;
   max-height: 70px;
-  min-width: 1400px;
   background-color: #ffffff;
   box-sizing: border-box;
   border-bottom: 1px solid #eeeeee;

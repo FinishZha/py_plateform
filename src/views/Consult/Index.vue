@@ -21,14 +21,12 @@ export default {
 
 <style lang="less" scoped>
 .consult{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .consult_inner{
     width: 1300px;
-    margin-top: 15px;
     margin-bottom: 20px;
-    //background-color: #2e7cee;
   }
 }
 </style>

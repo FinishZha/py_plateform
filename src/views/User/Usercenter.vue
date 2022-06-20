@@ -66,7 +66,7 @@ export default {
 .user_center{
   height: auto !important;
   width: 100%;
-  min-height: 800px;
+  min-height: 750px;
   .user_inner{
     height: 100%;
     width: 80%;

@@ -36,13 +36,12 @@ export default {
 
 <style lang="less" scoped>
 .book_table {
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
 
   .book_inner {
     width: 1300px;
-    margin-top: 15px;
     display: flex;
     justify-content: center;
 

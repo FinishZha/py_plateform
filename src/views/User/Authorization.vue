@@ -15,7 +15,7 @@ export default {
 
 <style lang="less" scoped>
 .auth{
-  min-height: 800px;
+  min-height: 750px;
   width: 100%;
 }
 </style>

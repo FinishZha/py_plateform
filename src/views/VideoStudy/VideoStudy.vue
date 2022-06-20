@@ -55,13 +55,12 @@ export default {
 
 <style lang="less" scoped>
 .video_study{
-  min-height: 800px;
+  min-height: 750px;
   width: 100%;
   display: flex;
   justify-content: center;
   .video_study__inner{
     width: 1300px;
-    margin-top: 15px;
     .video_study__inner-nav{
       margin-bottom: 10px;
       .el-card{

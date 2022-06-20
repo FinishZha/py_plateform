@@ -1,8 +1,8 @@
 <template>
   <div class="search_result" v-loading="loading">
     <el-card shadow="never" class="search_result">
-      <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="!questionEmptyShow"></el-empty>
-      <ul v-if="questionEmptyShow">
+      <el-empty description="你要问的问题没找到，请换个问题试试吧" v-if="questionEmptyShow"></el-empty>
+      <ul v-if="!questionEmptyShow">
         <el-skeleton :rows="12" animated  v-if="skeletonShow"/>
         <li v-for="item in question" :key="item.title" @click="jump_target(item, 'detail')" v-if="!skeletonShow">
           <div class="question_card" v-if="!skeletonShow">
@@ -57,6 +57,10 @@ export default {
           this.loading = false
         }
       }).catch(()=>{
+        this.$notify({
+          type:"error",
+          message:'问题列表获取失败:网络异常'
+        })
         this.loading = false
       })
     },

@@ -67,7 +67,7 @@ export default {
 
 <style lang="less" scoped>
 .detail{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .detail_inner{

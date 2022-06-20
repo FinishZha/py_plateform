@@ -33,7 +33,6 @@ export default {
   justify-content: space-around;
     .code_online__left{
       flex: 0;
-
       height: 100%;
     }
     .code_online__right{

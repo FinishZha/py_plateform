@@ -7,7 +7,7 @@ import service from "@/api/index";
  */
 export const GET_QUESTIONS_LIST = function (){
     return service({
-        url:'/article/common/listProblem',
+        url:'/article/base/listProblem',
         method:'get',
         params:''
     })
@@ -21,7 +21,7 @@ export const GET_QUESTIONS_LIST = function (){
  */
 export const GET_QUESTIONS_DETAIL = function (data){
     return service({
-        url:'/article/common/queryOneArticleById',
+        url:'/article/base/queryOneArticleById',
         method:'get',
         params:data
     })
@@ -35,7 +35,7 @@ export const GET_QUESTIONS_DETAIL = function (data){
  */
 export const SEARCH_TARGET = function (query){
     return service({
-        url:'/article/common/listProblemByWord',
+        url:'/article/base/listProblemByWord',
         method:'get',
         params:query
     })
@@ -48,7 +48,7 @@ export const SEARCH_TARGET = function (query){
  */
 export const  GET_HOT_QUESTION = function (){
     return service({
-        url:'/article/common/listArticleByRand',
+        url:'/article/base/listArticleByRand',
         method:'get',
         params:''
     })

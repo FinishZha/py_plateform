@@ -35,12 +35,11 @@ export default {
 
 <style lang="less" scoped>
 .question{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .question_inner{
     width: 1300px;
-    margin-top: 15px;
     margin-bottom: 20px;
     .question_inner__search{
 

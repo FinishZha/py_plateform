@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer_list">
-      <div class="footer_list__other">
+      <div class="footer_list__inner">
         <el-link :underline="false">联系我们</el-link>
         <el-link :underline="false">编程环境</el-link>
         <el-link :underline="false">MySQL教程</el-link>
@@ -26,44 +26,27 @@ export default {
 
 <style lang="less" scoped>
 .footer{
-  width: 100%;
-  min-width: 1400px;
-  background-color: #ffffff;
-  border-top: 1px solid #eeeeee;
-  z-index: 999;
-  position: relative;
-  top: 0;
-  left: 0;
+  height: 100%;
   .footer_list{
-    height: 120px;
-    width: 100%;
+    height: 140px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    .footer_list__other{
-        height: 120px;
-        width: 900px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        .el-link{
-            margin: 0 30px 0 30px;
-            font-size: 16px;
-            height: 20px;
-            width: 100px;
-        }
+    .footer_list__inner{
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .el-link{
+        min-width: 160px;
+        font-size: 16px;
+      }
     }
   }
   .footer_record{
     border-top: 1px solid #eeeeee;
-    height: 35px;
-    line-height: 35px;
+    height: 30px;
+    line-height: 36px;
     width: 100%;
-    position: relative;
     text-align: center;
-    left: 0;
-    top: 0;
     a{
       text-decoration: none;
       img{

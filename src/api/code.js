@@ -17,7 +17,7 @@ export const RUN_CODE = function (data){
 
 export const GET_EXERCISES = function (query){
     return service({
-        url:'/question/common/listQuestionByModel',
+        url:'/question/base/listQuestionByModel',
         method: 'get',
         params: query
     })

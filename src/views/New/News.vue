@@ -65,12 +65,11 @@ export default {
 
 <style lang="less" scoped>
 .new{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .new_inner{
     width: 1300px;
-    margin-top: 15px;
     margin-bottom: 20px;
     .el-card{
       .news_title{

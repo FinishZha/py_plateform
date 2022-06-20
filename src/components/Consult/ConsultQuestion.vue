@@ -60,7 +60,7 @@ export default {
 
 <style lang="less" scoped>
 .consult_question{
-  margin-top: 15px;
+  margin-top: 10px;
   .consult_question__inner{
     h3{
       border-bottom: 1px solid #eeeeee;

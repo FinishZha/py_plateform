@@ -58,14 +58,13 @@ export default {
 
 <style lang="less" scoped>
 .road_study{
-  min-height: 800px;
+  min-height: 750px;
   height: auto;
   display: flex;
   justify-content: center;
   .road_study__inner{
     width: 1300px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    //margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

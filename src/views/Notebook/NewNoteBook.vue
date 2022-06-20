@@ -133,8 +133,7 @@ export default {
     width: 96%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px auto;
+    margin-bottom: 10px;
     .el-input{
       .el-select{
         width: 150px;
@@ -143,7 +142,7 @@ export default {
     .mdeditor_handle__btns{
       width: 220px;
       height: auto;
-      margin-left: 10px;
+      margin-left: 30px;
       display: flex;
       justify-content: space-around;
     }

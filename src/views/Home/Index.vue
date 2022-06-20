@@ -62,7 +62,7 @@ export default {
   left: 0;
   width: 100%;
   .home_content{
-    min-height: 800px;
+    min-height: 750px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -70,7 +70,6 @@ export default {
       width: 1300px;
       height: auto;
       min-height: 800px;
-      margin-top: 15px;
       display: flex;
       flex-direction: column;
       .section_one{

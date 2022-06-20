@@ -115,7 +115,7 @@ export default {
 
 <style lang="less" scoped>
 .login{
-  height: 800px;
+  height: 750px;
   width: 100%;
   display: flex;
   justify-content: center;

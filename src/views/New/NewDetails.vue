@@ -50,13 +50,12 @@ export default {
 
 <style lang="less" scoped>
 .detail{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .detail_inner{
     width: 1300px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     .el-card{
       .detail_inner__title{
           .el-icon-back{

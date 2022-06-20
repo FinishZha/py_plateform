@@ -25,12 +25,11 @@ export default {
 
 <style lang="less" scoped>
 .enjoy{
-  min-height: 800px;
+  min-height: 750px;
   display: flex;
   justify-content: center;
   .enjoy_inner{
     width: 1300px;
-    margin-top: 15px;
     margin-bottom: 20px;
     .enjoy_content{
       height: auto;
