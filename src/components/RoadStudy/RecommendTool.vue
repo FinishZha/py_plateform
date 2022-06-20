@@ -25,7 +25,7 @@ export default {
 <style lang="less" scoped>
 .recommend_tool{
   .el-card{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
 </style>

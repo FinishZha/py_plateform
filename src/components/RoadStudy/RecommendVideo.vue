@@ -25,7 +25,6 @@ export default {
 <style lang="less" scoped>
 .recommend_video{
   .el-card{
-    margin-bottom: 10px;
   }
 }
 </style>
