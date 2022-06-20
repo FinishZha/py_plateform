@@ -1,8 +1,9 @@
 <template>
   <div class="video_table">
     <el-card shadow="never">
-        <div class="video_cards">
-          <VideoCard v-for="item in 4" :key="item"></VideoCard>
+        <el-empty description="暂时没有视频，可以去其他区看看..." v-if="showEmpty"></el-empty>
+        <div class="video_cards" v-if="!showEmpty">
+          <VideoCard v-for="item in videoList" :key="item.id"></VideoCard>
         </div>
     </el-card>
   </div>
@@ -13,6 +14,27 @@ import VideoCard from "@/components/Video/VideoCard";
 import {GET_VIDEO_LIST} from "@/api/video";
 export default {
   name: "VideoTable",
+  data(){
+    return {
+      videoList:[{
+        id:1,
+        img:'1515165',
+        url:'s121'
+      },{
+        id:1,
+        img:'1515165',
+        url:'s121'
+      },{
+        id:1,
+        img:'1515165',
+        url:'s121'
+      },{
+        id:1,
+        img:'1515165',
+        url:'s121'
+      }]
+    }
+  },
   components:{
     VideoCard
   },
@@ -25,6 +47,11 @@ export default {
       GET_VIDEO_LIST(data).then(res => {
         console.log(res)
       })
+    }
+  },
+  computed:{
+    showEmpty(){
+      return this.videoList.length === 0
     }
   },
   mounted() {

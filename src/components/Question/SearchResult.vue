@@ -54,7 +54,10 @@ export default {
             type:"error",
             message:'问题列表获取失败，请刷新'
           })
+          this.loading = false
         }
+      }).catch(()=>{
+        this.loading = false
       })
     },
     //关键字搜索
@@ -86,7 +89,7 @@ export default {
   computed:{
     //题目是否为空
     questionEmptyShow(){
-      return this.question.length
+      return this.question.length === 0
     },
   },
   mounted() {

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import { PROJECT_NAME } from '../../project'
 Vue.use(VueRouter)
 
 const routes = [
@@ -180,6 +180,7 @@ const routes = [
     component: () => import('@/views/CodeOnline/Index')
   }
 ]
+window.document.title = PROJECT_NAME
 const router = new VueRouter({
   routes
 })

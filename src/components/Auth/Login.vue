@@ -82,6 +82,11 @@ export default {
                 message:'登录失败，账号或密码错误'
               })
             }
+          }).catch(()=>{
+            this.$notify({
+              type:"error",
+              message:'登录失败，网络异常'
+            })
           })
         } else {
           this.$notify({

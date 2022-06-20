@@ -4,7 +4,8 @@
     <div class="content_list__card-title">
       <h3>视频专区</h3>
     </div>
-    <div class="content_list__card-main">
+    <el-empty description="啥也没有" v-if="showEmpty"></el-empty>
+    <div class="content_list__card-main" v-if="!showEmpty">
       <VideoCard v-for="item in 6" :key="item"></VideoCard>
     </div>
     <div class="content_list__card-end">
@@ -18,8 +19,18 @@
 import VideoCard from "@/components/Video/VideoCard";
 export default {
   name: "ContentListCard",
+  data(){
+    return{
+      videoList:[]
+    }
+  },
   components:{
     VideoCard
+  },
+  computed:{
+    showEmpty(){
+      return this.videoList.length === 0
+    }
   }
 }
 </script>
@@ -27,7 +38,7 @@ export default {
 <style lang="less" scoped>
 .content_list_card{
   width: 100%;
-  min-height: 600px;
+  min-height: 400px;
   .el-card{
     height: 100%;
     .content_list__card-title{
@@ -37,6 +48,7 @@ export default {
       }
     }
     .content_list__card-main{
+      height: 100%;
       margin-top: 15px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);

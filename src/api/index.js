@@ -4,7 +4,7 @@ import { Message } from 'element-ui'
 //1. 创建新的axios实例，
 const service = axios.create({
     // 公共接口
-    baseURL: '',
+    baseURL: 'http://106.55.103.152:8089',
     // 超时时间 单位是ms，这里设置了20s的超时时间
     timeout: 20 * 1000
 })
@@ -35,8 +35,6 @@ service.interceptors.response.use(response => {
 }, error => {
     /***** 接收到异常响应的处理开始 *****/
     if (error && error.response) {
-        // 1.公共错误处理
-        // 2.根据响应码具体处理
         switch (error.response.status) {
             case 400:
                 error.message = '错误请求'
@@ -49,7 +47,6 @@ service.interceptors.response.use(response => {
                 break;
             case 404:
                 error.message = '请求错误,未找到该资源'
-                // window.location.href = "/404"
                 break;
             case 405:
                 error.message = '请求方法未允许'
@@ -76,7 +73,7 @@ service.interceptors.response.use(response => {
                 error.message = 'http版本不支持该请求'
                 break;
             default:
-                error.message = `连接错误${error.response.status}`
+                error.message = `连接错误`
         }
     } else {
         // 超时处理

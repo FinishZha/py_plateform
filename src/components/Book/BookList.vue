@@ -35,7 +35,15 @@ export default {
         if(res.request.status === 200){
           this.loading = false
           this.book_list = res.data.message.data
+        }else {
+          this.$notify({
+            type:'error',
+            message:'获取书籍列表失败，刷新试试'
+          })
+          this.loading = false
         }
+      }).catch(()=>{
+        this.loading = false
       })
     },
     show(){
