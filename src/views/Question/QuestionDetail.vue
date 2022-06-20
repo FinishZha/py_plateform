@@ -11,7 +11,8 @@
           <el-skeleton :rows="10" animated v-if="skeletonShow"/>
           <div class="detail_inner__main-content">
                 <h1>{{ detailContent.atitle }}</h1>
-                <MarkDownShow :content="detailContent.acontent" v-if="!skeletonShow"></MarkDownShow>
+                <MarkDownShow ref="newDetail"></MarkDownShow>
+<!--            //:content="detailContent.acontent"-->
           </div>
         </div>
       </el-card>
@@ -48,6 +49,7 @@ export default {
         if(res.request.status === 200){
           this.skeletonShow = false
           this.detailContent = res.data.message.data
+          this.$refs.newDetail.value = res.data.message.data.acontent
         }
       })
     }
