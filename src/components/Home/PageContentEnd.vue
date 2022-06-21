@@ -8,7 +8,7 @@
         <el-empty description="啥也没有..." v-if="emptyShow"></el-empty>
         <ul v-if="!emptyShow">
           <li v-for="item in articleList" :key="item.aid" @click="jump_target(item,'question/detail')">
-            <el-link href="">{{item.aname}}</el-link>
+            <span>{{item.aname}}</span>
           </li>
         </ul>
     </div>
@@ -94,7 +94,7 @@ export default {
             word-break: break-all;
             white-space: nowrap;
             text-overflow: ellipsis;
-            .el-link{
+            span{
               font-size: 17px;
               padding-left: 15px;
             }
