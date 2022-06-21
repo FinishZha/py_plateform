@@ -10,7 +10,7 @@
              </li>
              <li>
                <img src="../../../public/talk.png" width="50px">
-               <el-link :underline="false" @click="wait">热门话题</el-link>
+               <el-link :underline="false"  href="#/project/hot">热门话题</el-link>
              </li>
              <li>
                <img src="../../../public/no.png" width="50px">
@@ -48,7 +48,7 @@
             </li>
             <li>
               <img src="../../../public/video.png" alt="">
-              <el-link :underline="false">哔哩哔哩</el-link>
+              <el-link :underline="false">哔哩哔哩推荐</el-link>
             </li>
             <li>
               <img src="../../../public/gift.png" alt="">

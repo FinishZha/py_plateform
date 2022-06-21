@@ -6,11 +6,7 @@
     </div>
     <el-empty description="暂时没有推荐的..." v-if="showEmpty"></el-empty>
     <div class="content_list__card-main" v-if="!showEmpty">
-      <VideoCard v-for="item in videoList"
-                 :key="videoList.vid"
-                 :video-img="videoList.vpicture"
-                 :video-title="item.vname"
-                 :video-link="item.vpath"></VideoCard>
+      <VideoCard v-for="item in videoList" :key="item.vid" :video-title="item.vname" :video-link="item.vpath" :video-img="item.vpicture"></VideoCard>
     </div>
     <div class="content_list__card-end">
       <el-link icon="el-icon-bottom" href="#/project/video">更多</el-link>
@@ -26,7 +22,7 @@ export default {
   name: "ContentListCard",
   data(){
     return{
-      videoList:[{}]
+      videoList:[]
     }
   },
   methods:{

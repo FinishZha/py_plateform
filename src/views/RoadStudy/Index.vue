@@ -28,6 +28,36 @@ export default {
     RecommendVideo
   },
   methods:{
+    //路线文字格式化
+    road_word(key){
+      let tag_word = ''
+      switch (key){
+        case '1':
+          tag_word = 'Python基础'
+          break
+        case '2':
+          tag_word = 'Python高级'
+          break
+        case '3':
+          tag_word = '人工智能'
+          break
+        case '4':
+          tag_word = '爬虫'
+          break
+        case '5':
+          tag_word = '大数据'
+          break
+        case '6':
+          tag_word = 'Python后端开发'
+          break
+        case '7':
+          tag_word = '自动化运维'
+          break
+        default:
+          tag_word = '暂未选择'
+      }
+      return tag_word
+    },
     //进入页面提示功能
     page_notice(){
       if (this.USER_ROAD === ''){
@@ -40,7 +70,7 @@ export default {
       }else {
         this.$notify({
           type:'success',
-          message:`系统检测您选择的学习路线是${this.USER_ROAD},将为您推荐此类内容`
+          message:`系统检测您选择的学习路线是${this.road_word(this.USER_ROAD)},将为您推荐此类内容`
         })
       }
     }

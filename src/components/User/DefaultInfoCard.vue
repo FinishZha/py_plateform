@@ -109,7 +109,6 @@ export default {
         userDirection: this.$store.state.User.USER_INFO.USER_ROAD
       }
       CHANGE_USER_ROAD(data).then(res=>{
-        console.log(res)
         if(res.status === 200 && res.data.message.updateInfo.updateCode === 1){
           this.$notify({
             type:"success",

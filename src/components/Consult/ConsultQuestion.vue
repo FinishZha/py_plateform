@@ -10,16 +10,15 @@
               <div class="question_card">
                 <p>{{ item.questionContent }}</p>
                 <div class="choice">
-                  <ul>
-                    <li v-for="answer in item.select">
-                      {{ answer.scode }}.{{ answer.scontent }}
-                    </li>
-                  </ul>
+                  <el-input v-model='answer[item.questionId.toString()]'></el-input>
                 </div>
                 <div class="text"></div>
               </div>
             </li>
           </ul>
+        </div>
+        <div class="consult_question__inner-button">
+          <el-button type="primary" icon="el-icon-s-promotion" @click="post_question">提交问卷</el-button>
         </div>
       </div>
   </el-card>
@@ -28,11 +27,14 @@
 
 <script>
 import {GET_START_QUESTION} from "@/api/start";
+import {CHANGE_USER_ROAD} from "@/api/user";
+
 export default {
   name: "ConsultQuestion",
   data(){
     return{
-      start_question:[]
+      start_question:[],
+      answer:[]
     }
   },
   methods:{
@@ -42,9 +44,48 @@ export default {
         this.start_question = res.data.message.questionInfo
       })
     },
-    //判断题目类型
-    get_start_question_type(){
-
+    //修改用户线路
+    change_user_road(){
+      let data = {
+        userId: this.$store.state.User.USER_INFO.USER_ID,
+        userDirection: '1'
+      }
+      CHANGE_USER_ROAD(data).then(res=>{
+        console.log(res)
+        if(res.status === 200 && res.data.message.updateInfo.updateCode === 1){
+          this.$notify({
+            type:"success",
+            message:`学习线路成功修改为${res.data.message.updateInfo.directionName}`
+          })
+        }else {
+          this.$notify({
+            type:"error",
+            message:`学习线路修改失败`
+          })
+        }
+        this.dialogFormVisible = false
+      })
+    },
+    //提交问题
+    post_question(){
+      if(this.answer.length > 0){
+        this.$confirm(`你选择的线路是Python初级,系统将主动为您提供此类资源，如需更改，请前往“个人中心”调整`, '提示', {
+          cancelButtonText:'取消',
+          confirmButtonText:'OK',
+          type:'success'
+        }).then(()=>{
+          this.$router.push('roadstudy')
+        }).catch(()=>{
+          this.push('roadstudy')
+        }).finally(()=>{
+          this.change_user_road()
+        })
+      }else {
+        this.$notify({
+          type:'error',
+          message:'线路判断失败:答题不完整'
+        })
+      }
     }
   },
   computed:{
@@ -80,12 +121,22 @@ export default {
             min-height: 40px;
             line-height: 40px;
             padding: 15px;
-            border-bottom: 1px solid #ececec;
+            border-bottom: 1px solid #eeeeee;
             &:hover{
-              background-color: #ececec;
+              background-color: #f8f8f8;
             }
           }
         }
+      }
+    }
+    .consult_question__inner-button{
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .el-button{
+        margin-top: 15px;
+        margin-right: 20px;
       }
     }
   }

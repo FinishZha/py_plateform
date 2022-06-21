@@ -35,7 +35,6 @@ export default {
         modelId:'1'
       }
       GET_VIDEO_LIST(data).then(res => {
-        console.log(res)
         if(res.status === 200){
           this.videoList = res.data.message.data
         }else {

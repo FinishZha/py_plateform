@@ -7,7 +7,7 @@ import service from "@/api/index";
  */
 export const GET_START_QUESTION = function (){
     return service({
-        url:'/question/common/listQuestionByAsk',
+        url:'/question/base/listQuestionByAsk',
         method:'get',
         params:''
     })

@@ -30,7 +30,7 @@ export default {
         })
       }else {
         this.$router.push({
-          path:'bookdetail',
+          path:'/project/book/bookdetail',
           query:{
             bid: this.$props.bookId
           }

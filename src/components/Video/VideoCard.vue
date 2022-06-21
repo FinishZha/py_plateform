@@ -44,7 +44,7 @@ export default {
   methods:{
     go_target_url(){
       this.$router.push({
-        path:'videodetail',
+        path:'/project/video/videodetail',
         query:{
           videourl: this.$props.videoLink
         }

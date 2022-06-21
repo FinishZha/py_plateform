@@ -35,7 +35,7 @@ export const GET_HOT_MEWS_DETAIL = function (query){
  */
 export const GET_ALL_NEWS = function (){
     return service({
-        url:'/news/base/listNewsByAll',
+        url:'/news/common/listNewsByAll',
         method:'get',
         params:''
     })

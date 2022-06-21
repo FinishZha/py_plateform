@@ -46,7 +46,7 @@ export default {
         this.newsList = res.data.message.data
       }).catch(()=>{
         this.$notify({
-          type:"warning",
+          type:"error",
           message:'获取热点列表失败'
         })
       })
