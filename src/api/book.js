@@ -23,7 +23,7 @@ export const GET_BOOK_LIST = function (query){
  */
 export const GET_TARGET_BOOK = function (query){
     return service({
-        url:'/book/base/queryOneBookById',
+        url:'/book/common/queryOneBookById',
         method:'get',
         params:query
     })

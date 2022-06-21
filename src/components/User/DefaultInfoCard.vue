@@ -167,6 +167,7 @@ export default {
 
 <style lang="less" scoped>
 .default_msg{
+  margin-top: -12px;
   .el-card{
     margin-bottom: 15px;
     width: 98%;

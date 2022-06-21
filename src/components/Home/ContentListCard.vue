@@ -4,9 +4,13 @@
     <div class="content_list__card-title">
       <h3>视频专区</h3>
     </div>
-    <el-empty description="啥也没有" v-if="showEmpty"></el-empty>
+    <el-empty description="暂时没有推荐的..." v-if="showEmpty"></el-empty>
     <div class="content_list__card-main" v-if="!showEmpty">
-      <VideoCard v-for="item in 6" :key="item"></VideoCard>
+      <VideoCard v-for="item in videoList"
+                 :key="videoList.vid"
+                 :video-img="videoList.vpicture"
+                 :video-title="item.vname"
+                 :video-link="item.vpath"></VideoCard>
     </div>
     <div class="content_list__card-end">
       <el-link icon="el-icon-bottom" href="#/project/video">更多</el-link>
@@ -17,11 +21,24 @@
 
 <script>
 import VideoCard from "@/components/Video/VideoCard";
+import {GET_VIDEO_LIST} from "@/api/video";
 export default {
   name: "ContentListCard",
   data(){
     return{
-      videoList:[]
+      videoList:[{}]
+    }
+  },
+  methods:{
+    //随机获取模块视频
+    get_video_list(){
+      let rand = Math.floor(Math.random()*(7 - 1) + 1)
+      let query = {
+        modelId:rand
+      }
+      GET_VIDEO_LIST(query).then(res=>{
+        this.videoList = res.data.message.data
+      })
     }
   },
   components:{
@@ -31,6 +48,9 @@ export default {
     showEmpty(){
       return this.videoList.length === 0
     }
+  },
+  mounted() {
+    this.get_video_list()
   }
 }
 </script>

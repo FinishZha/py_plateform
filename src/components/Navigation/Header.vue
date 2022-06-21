@@ -51,7 +51,7 @@
                 </el-dropdown>
               </li>
               <li>
-                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('roadstudy')" round>线路牵引</el-button>
+                <el-button type="primary" size="medium" icon="el-icon-c-scale-to-original" @click="url_jump('/project/roadstudy')" round>线路牵引</el-button>
               </li>
             </ul>
           </div>

@@ -3,7 +3,13 @@
     <el-card shadow="never">
         <el-empty description="暂时没有视频，可以去其他区看看..." v-if="showEmpty"></el-empty>
         <div class="video_cards" v-if="!showEmpty">
-          <VideoCard v-for="item in videoList" :key="item.id"></VideoCard>
+          <VideoCard v-for="item in videoList"
+                     key="item.id"
+                     :video-img="item.vpicture"
+                     :video-title="item.vname"
+                     :video-introduce="item.vintroduce"
+                     :video-link="item.vpath"
+                     :video-id="item.vid"></VideoCard>
         </div>
     </el-card>
   </div>
@@ -30,6 +36,14 @@ export default {
       }
       GET_VIDEO_LIST(data).then(res => {
         console.log(res)
+        if(res.status === 200){
+          this.videoList = res.data.message.data
+        }else {
+          this.$notify({
+            type:'error',
+            message:'获取视频列表失败'
+          })
+        }
       })
     }
   },
@@ -39,6 +53,7 @@ export default {
     }
   },
   mounted() {
+    this.get_videos()
   }
 }
 </script>

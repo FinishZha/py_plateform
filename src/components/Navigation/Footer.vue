@@ -2,13 +2,16 @@
   <div class="footer">
     <div class="footer_list">
       <div class="footer_list__inner">
-        <el-link :underline="false">联系我们</el-link>
-        <el-link :underline="false">编程环境</el-link>
-        <el-link :underline="false">MySQL教程</el-link>
-        <el-link :underline="false">Java教程</el-link>
-        <el-link :underline="false">接口规范</el-link>
-        <el-link :underline="false">就业指导</el-link>
-        <el-link :underline="false">关于作者</el-link>
+        <ul>
+          <li>
+            <el-link :underline="true">联系我们</el-link></li>
+          <li><el-link :underline="true">编程环境</el-link></li>
+          <li><el-link :underline="true">MySQL教程</el-link></li>
+          <li><el-link :underline="true">Java教程</el-link></li>
+          <li><el-link :underline="true">接口规范</el-link></li>
+          <li><el-link :underline="true">就业指导</el-link></li>
+          <li><el-link :underline="true">关于作者</el-link></li>
+        </ul>
       </div>
     </div>
     <div class="footer_record">
@@ -33,11 +36,21 @@ export default {
     justify-content: center;
     .footer_list__inner{
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      .el-link{
-        min-width: 160px;
-        font-size: 16px;
+      justify-content: center;
+      align-items: center;
+      ul{
+        width: 600px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        li{
+          list-style: none;
+          height: 30px;
+          width: 180px;
+          line-height: 30px;
+          text-align: center;
+          margin-top: 10px;
+        }
       }
     }
   }

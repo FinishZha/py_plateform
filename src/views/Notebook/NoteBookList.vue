@@ -186,7 +186,7 @@ export default {
           }
       }
       .notebook_list__inner-main{
-        height: 400px;
+        min-height: 400px;
         ul{
           li{
             list-style: none;

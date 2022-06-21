@@ -64,7 +64,7 @@ export default {
 
 <style lang="less" scoped>
   .page_content_end{
-    min-height: 300px;
+    min-height: 180px;
     width: 100%;
     .el-card{
       height: 100%;
@@ -75,7 +75,7 @@ export default {
         }
       }
       .page_content__end-main{
-        min-height: 180px;
+        min-height: 120px;
         margin-top: 20px;
         ul{
           display: flex;
@@ -87,9 +87,9 @@ export default {
             margin-top: 5px;
             margin-left: 10px;
             list-style: none;
-            height: 90px;
+            height: 40px;
             width: 610px;
-            line-height: 90px;
+            line-height: 40px;
             overflow: hidden;
             word-break: break-all;
             white-space: nowrap;

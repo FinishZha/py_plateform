@@ -80,7 +80,7 @@ export default {
     .user_inner__left{
       width: 300px;
       position: fixed;
-      top: 80px;
+      top: 90px;
       .el-card{
         .el-menu{
           border:0 !important;

@@ -26,7 +26,6 @@ export default {
   justify-content: center;
   .video_detail_inner{
     width: 1300px;
-    margin-top: 15px;
     margin-bottom: 20px;
   }
 }
