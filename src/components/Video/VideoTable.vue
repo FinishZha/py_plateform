@@ -2,9 +2,9 @@
   <div class="video_table">
     <el-card shadow="never">
         <el-empty description="暂时没有视频，可以去其他区看看..." v-if="showEmpty"></el-empty>
-        <div class="video_cards" v-if="!showEmpty">
+        <div class="video_cards" v-if="!showEmpty" v-loading="loading">
           <VideoCard v-for="item in videoList"
-                     key="item.id"
+                     :key="item.vid"
                      :video-img="item.vpicture"
                      :video-title="item.vname"
                      :video-introduce="item.vintroduce"
@@ -22,7 +22,8 @@ export default {
   name: "VideoTable",
   data(){
     return {
-      videoList:[]
+      videoList:[],
+      loading:false
     }
   },
   components:{
@@ -30,18 +31,21 @@ export default {
   },
   methods:{
     //获取视频列表
-    get_videos(){
+    get_videos(id){
+      this.loading = true
       let data = {
-        modelId:'1'
+        modelId:id
       }
       GET_VIDEO_LIST(data).then(res => {
         if(res.status === 200){
           this.videoList = res.data.message.data
+          this.loading = false
         }else {
           this.$notify({
             type:'error',
             message:'获取视频列表失败'
           })
+          this.loading = false
         }
       })
     }
@@ -52,7 +56,7 @@ export default {
     }
   },
   mounted() {
-    this.get_videos()
+    this.get_videos(1)
   }
 }
 </script>

@@ -7,13 +7,14 @@
             <span>方向:</span>
             <div class="direction_list">
               <ul>
-                <li><el-link type="primary">全部</el-link></li>
-                <li><el-link>Python基础</el-link></li>
-                <li><el-link>大数据</el-link></li>
-                <li><el-link>爬虫</el-link></li>
-                <li><el-link>Python后端开发</el-link></li>
-                <li><el-link>人工智能</el-link></li>
-                <li><el-link>自动化</el-link></li>
+                <li><el-link @click="change_module(1)">全部</el-link></li>
+                <li><el-link @click="change_module(1)">Python基础</el-link></li>
+                <li><el-link @click="change_module(2)">Python高级</el-link></li>
+                <li><el-link @click="change_module(3)">大数据</el-link></li>
+                <li><el-link @click="change_module(4)">爬虫</el-link></li>
+                <li><el-link @click="change_module(5)">Python后端开发</el-link></li>
+                <li><el-link @click="change_module(6)">人工智能</el-link></li>
+                <li><el-link @click="change_module(7)">自动化</el-link></li>
               </ul>
             </div>
           </div>
@@ -21,7 +22,7 @@
             <span>类别:</span>
             <div class="class_list">
               <ul>
-                <li><el-link type="primary">全部</el-link></li>
+                <li><el-link>全部</el-link></li>
                 <li><el-link>入门</el-link></li>
                 <li><el-link>初级</el-link></li>
                 <li><el-link>中级</el-link></li>
@@ -32,7 +33,7 @@
         </el-card>
       </div>
       <div class="video_study__inner-table">
-        <VideoTable></VideoTable>
+        <VideoTable ref="videoTable"></VideoTable>
       </div>
       <div class="video_study__inner-pagination">
         <PaginationCard></PaginationCard>
@@ -49,6 +50,11 @@ export default {
   components:{
     VideoTable,
     PaginationCard
+  },
+  methods:{
+    change_module(id){
+      this.$refs.videoTable.get_videos(id)
+    }
   }
 }
 </script>

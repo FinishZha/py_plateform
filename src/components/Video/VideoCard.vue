@@ -64,9 +64,9 @@ export default {
       width: 360px;
       height: 160px;
       border-bottom: 1px solid #eeeeee;
+      margin-bottom: 15px;
       .el-image{
-        max-width: 100px;
-        max-height: 280px;
+        max-height: 160px;
       }
     }
     .video_title{
@@ -79,11 +79,13 @@ export default {
       align-items: center;
       .video_title__inner{
         p{
-          color: #a1a1a1;
+          margin-top: 5px;
           font-size: 16px;
         }
         span{
           color: #a1a1a1;
+          display: block;
+          width: 260px;
           &:nth-child(2){
             font-size: 12px;
             margin-top: 10px;

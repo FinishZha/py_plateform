@@ -33,7 +33,7 @@
               <el-link icon="el-icon-suitcase" :underline="false" @click="wait">面试题</el-link>
             </li>
             <li>
-              <el-link icon="el-icon-position" :underline="false" href="/#/project/consult">方向导向</el-link>
+              <el-link icon="el-icon-position" :underline="false" @click="user_state_check('consult')">方向导向</el-link>
             </li>
             <li>
               <el-link icon="el-icon-more" :underline="false" @click="wait">更多</el-link>

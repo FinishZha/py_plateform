@@ -3,7 +3,13 @@
  <div class="video_detail_inner">
    <el-card shadow="hover">
      <div class="video">
-        <video src=""></video>
+       <iframe
+           :src="this.$route.query.videourl"
+           scrolling="no"
+           border="0"
+           frameborder="no"
+           framespacing="0"
+           allowfullscreen="true"> </iframe>
      </div>
      <div class="catalogue">
 
@@ -27,6 +33,16 @@ export default {
   .video_detail_inner{
     width: 1300px;
     margin-bottom: 20px;
+    .el-card{
+      .video{
+        width: 100%;
+        height: 600px;
+        iframe{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 }
 </style>
